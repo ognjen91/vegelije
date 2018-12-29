@@ -1,0 +1,45 @@
+@mixin flexCentered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@mixin flexCenterImg($img_width : 100%){
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & img {
+    width: $img_width;
+    min-width: $img_width;
+  }
+}
+
+@mixin flexCenterLinkImg($img_width : 100%){
+  &>a {
+    // border: $blab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &>a>img {
+    width: $img_width;
+    min-width: $img_width;
+  }
+}
+
+
+@mixin outlined(){
+     color: #fff !important;
+    -webkit-text-stroke: 1px $tam05;
+}
+
+
+@mixin rotate($deg){
+  -ms-transform: rotate($deg); /* IE 9 */
+  -webkit-transform: rotate($deg); /* Safari 3-8 */
+  transform: rotate($deg);
+}

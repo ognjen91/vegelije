@@ -1,0 +1,52 @@
+.notificationIcon{
+  display: flex;
+  & i{
+    margin-right: 2%;
+  }
+
+  & p{
+    color: red;
+  }
+}
+
+.hasNewNotifications{
+  color: red !important;
+}
+
+.hasNewNoNotifications{
+  color: gray !important;
+}
+
+.allNotifications{
+  position: absolute;
+  z-index: 9;
+  background-color: #fff;
+
+  & ul{
+    list-style: none;
+  }
+
+  &>div{
+      padding: 3%;
+  }
+}
+
+.unreadNotifications{
+  background-color: $c407;
+
+  & .notification{
+    & p{
+      color: #fff;
+    }
+  }
+}
+
+.readNotifications{
+  background-color: rgba(188, 219, 209, 0.82);
+  & .notification{
+    & p{
+      color: black;
+    }
+  }
+
+}

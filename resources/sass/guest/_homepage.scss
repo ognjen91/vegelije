@@ -1,0 +1,58 @@
+html,body{
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#app{
+  background-color: $c202;
+}
+
+.titleWrap{
+  display: flex;
+  justify-content: center;
+}
+
+.appTitle{
+  font-weight: 600;
+  // display: inline;
+  @media screen and (min-width: $lg){
+    font-size: 1.5;
+  }
+}
+
+#qmark{
+  display: inline-block;
+  -ms-transform: rotate(30deg); /* IE 9 */
+ -webkit-transform: rotate(30deg); /* Safari 3-8 */
+ transform: rotate(30deg);
+ font-size: 2.2;
+ // margin-left: 1%;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  // word-wrap: break-word;      /* IE 5.5-7 */
+  //   white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+  //   white-space: pre-wrap;      /* current browsers */
+
+  @media screen and (min-width: $md){
+    flex-direction: row;
+  }
+  padding: 1% 0%;
+
+  @media screen and (min-width: $sm){
+    padding: 2% 0%;
+  }
+}
+
+
+@import 'homepageBars';
+
+// POCETNI SADRZAJ STRANICE
+@import 'homepageInitial';
+
+//REZULTATI PRETRAGE
+@import 'homepageSearch';

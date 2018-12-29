@@ -1,0 +1,59 @@
+import Vue from 'vue';
+import Vuex from 'vuex'
+import storeData from './store'
+
+Vue.use(Vuex);
+
+require('./bootstrap');
+window.Vue = require('vue');
+
+Vue.component('productBar', require('./components/guest/ProductBar.vue'));
+Vue.component('productSuggestions', require('./components/guest/SearchSuggestions.vue'));
+Vue.component('manufacturerBar', require('./components/guest/ManufacturersBar.vue'));
+Vue.component('manufacturerSuggestions', require('./components/guest/ManufacturersSuggestions.vue'));
+Vue.component('searchResults', require('./components/guest/SearchResults.vue'));
+Vue.component('searchResult', require('./components/guest/Product.vue'));
+Vue.component('searchButton', require('./components/guest/SearchButton.vue'));
+Vue.component('noProductDanger', require('./components/guest/NoProductDanger.vue'));
+Vue.component('listingProductsAndProductGroups', require('./components/guest/listing.vue'));
+Vue.component('tagInput', require('./components/guest/tagInput.vue'));
+Vue.component('manufacturersSearch', require('./components/guest/ManufacturersPageSearchBar.vue'));
+Vue.component('manufacturersResults', require('./components/guest/ManufacturersPageResults.vue'));
+
+Vue.component('productOrProductGroup', require('./components/admin/createOrEditProduct/ProductOrProductGroup.vue'));
+Vue.component('productFormWithCustomAction', require('./components/admin/createOrEditProduct/FormWithCustomAction.vue'));
+Vue.component('productManufacturer', require('./components/admin/createOrEditProduct/ProductManufacturer.vue'));
+
+Vue.component('customInput', require('./components/admin/reusable/customInput.vue'));
+Vue.component('customSelect', require('./components/admin/reusable/customSelect.vue'));
+Vue.component('addTags', require('./components/admin/reusable/AddTags.vue'));
+Vue.component('iconWarningAndAction', require('./components/admin/reusable/IconWarningAndAction.vue'));
+Vue.component('buttonWarningAndAction', require('./components/admin/reusable/ButtonWarningAndAction.vue'));
+Vue.component('iconWithHiddenForm', require('./components/admin/reusable/IconWithHiddenForm.vue'));
+Vue.component('zoomableImage', require('./components/admin/reusable/ImageZoomable.vue'));
+
+
+Vue.component('suggestionFormWithCustomAction', require('./components/admin/suggestionReview/FormWithCustomAction.vue'));
+Vue.component('suggestionProductOrProductGroup', require('./components/admin/suggestionReview/ProductOrProductGroup.vue'));
+Vue.component('suggestedImage', require('./components/admin/suggestionReview/SuggestedImage.vue'));
+
+Vue.component('notificationIconAndWindow', require('./components/admin/notificationWindow/IconAndWindow.vue'))
+
+
+const store = new Vuex.Store(storeData);
+const app = new Vue({
+    el: '#app',
+    store,
+});
+
+
+
+
+$(".searchResult").click(function(){
+    // console.log('ok');
+    console.log($(this).height());
+})
+
+
+$("#hamburger").click(()=>{$("#menu").removeClass("mobileMenuHide").addClass("mobileMenuShow")})
+$("#closeMenu").click(()=>{$("#menu").removeClass("mobileMenuShow").addClass("mobileMenuHide")})

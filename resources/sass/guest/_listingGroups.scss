@@ -1,0 +1,21 @@
+.listedGroup{
+  background-color: $c2;
+  border: $c202;
+  & h3{
+  
+  }
+
+
+  &:hover{
+    background-color: $c1;
+    border: $c2;
+
+    & h3{
+      color: #fff;
+    }
+
+    & p {
+      color: #fff !important;
+    }
+  }
+}

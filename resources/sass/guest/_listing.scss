@@ -1,0 +1,28 @@
+.selectListing {
+    display: flex;
+    justify-content: center;
+
+    & > p {
+        margin: 2% 4%;
+        color: $c2;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+        cursor: pointer;
+
+        @media screen and (min-width: $sm) {
+            font-size: 20px;
+        }
+        @media screen and (min-width: $md) {
+            font-size: 22px;
+        }
+        @media screen and (min-width: $md) {
+            font-size: 24px;
+        }
+    }
+}
+
+.selectedListing {
+    font-weight: 800;
+    text-decoration: underline;
+}

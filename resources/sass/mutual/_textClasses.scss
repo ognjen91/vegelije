@@ -1,0 +1,148 @@
+.outlined{
+
+  color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+
+}
+
+.fo1{
+  font-family: $fo1;
+}
+
+
+.spaced{
+  letter-spacing: 1px;
+}
+
+.spaced2{
+  letter-spacing: 2px;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+
+.blackLink{
+
+  color: black;
+
+  &:hover{
+  color: black;
+  }
+}
+
+.c1Link{
+  color: $c1;
+  // text-align: center !important
+
+  &:hover{
+  color: $c1;
+  }
+}
+
+.c2Link{
+  color: $c2;
+  // text-align: center !important
+
+  &:hover{
+  color: $c2;
+  }
+}
+
+.c3Link{
+  color: $c3;
+  // text-align: center !important
+
+  &:hover{
+  color: $c3;
+  }
+}
+
+.c4Link{
+  color: $c4;
+  // text-align: center !important
+
+  &:hover{
+  color: $c4;
+  }
+}
+
+.c5Link{
+  color: $c5;
+  // text-align: center !important
+
+  &:hover{
+  color: $c5;
+  }
+}
+
+#08cf31
+
+.c0{
+  color : #fff;
+}
+
+.c1{
+  color: $c1; //zelena
+}
+
+.c2{
+  color: $c2; //ljubicasta
+}
+
+.c3{
+  color: $c3; //pink
+}
+
+.c4{
+  color: $c4; //narandzasta
+}
+
+.c5 {
+  color: $c5; //zuta
+}
+
+.colorDanger {
+  color : $dangerColor; //upozoravajuća
+}
+
+
+.c0-md{
+  @media screen and (min-width: $md){
+    color : #fff;
+  }
+}
+.c1-md{
+  @media screen and (min-width: $md){
+    color: $c1; //zelena
+  }
+}
+.c2-md{
+  @media screen and (min-width: $md){
+    color: $c2; //ljubicasta
+  }
+}
+.c3-md{
+  @media screen and (min-width: $md){
+    color: $c3; //pink
+    }
+  }
+.c4-md{
+  @media screen and (min-width: $md){
+    color: $c4; //narandzasta
+  }
+}
+.c5-md{
+  @media screen and (min-width: $md){
+    color: $c5; //zuta
+  }
+}
+
+.colorDanger-md{
+  @media screen and (min-width: $md){
+    color: $c5; //zuta
+  }
+}

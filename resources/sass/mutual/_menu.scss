@@ -1,0 +1,93 @@
+.mainMenu {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 10;
+    background-color: $c205;
+    display: flex;
+    align-items: center;
+
+    // border: $redb2;
+
+    & ul{
+      width: 100vw !important;
+      // border: $greb;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+    }
+}
+
+.menuItem{
+   width: 100%;
+   margin: 4% 0;
+   letter-spacing: 2px;
+   text-transform: uppercase;
+   font-size: 1.3em;
+
+   @media screen and (min-width:$md){
+     margin:  1% 0;
+   }
+
+   & a {
+     color: $c0;
+     font-weight: 700;
+   }
+}
+
+.mobileMenuShow{
+   -webkit-animation: menuShow 1s; /* Safari 4.0 - 8.0 */
+   animation: menuShow 1s;
+   animation-fill-mode: forwards;
+}
+
+.mobileMenuHide{
+  -webkit-animation: menuHide 1s; /* Safari 4.0 - 8.0 */
+  animation: menuHide 1s;
+  animation-fill-mode: forwards;
+}
+
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes menuShow {
+  0%   {right: -100%;
+        background-color: $c202;}
+  100% {right: 0;
+        background-color: $c2;}
+
+}
+
+/* Standard syntax */
+@keyframes menuShow {
+  0%   {right: -100%;
+        background-color: $c202;}
+  100% {right: 0;
+        background-color: $c2;}
+}
+
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes menuHide {
+  0%   {right: 0%;
+        background-color: $c2;}
+  100% {right: -100%;
+        background-color: $c202;}
+}
+
+/* Standard syntax */
+@keyframes menuHide {
+  0%   {right: 0;
+        background-color: $c2;}
+  100% {right: -100%;
+        background-color: $c202;}
+}
+
+
+.closeMenu{
+ align-self: flex-start;
+ float: left;
+ position: absolute;
+ // border: $redb;
+}

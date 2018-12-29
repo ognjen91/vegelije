@@ -1,0 +1,15 @@
+.readNotif{
+  background-color: $c105;
+}
+
+.unreadNotif{
+  background-color: $c205;
+}
+
+  .notifDispatch{
+    & a{
+      margin-right: 4%;
+      margin-bottom: 4%;
+      border: $black;
+    }
+  }

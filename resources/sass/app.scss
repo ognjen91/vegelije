@@ -1,0 +1,50 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro');
+
+// Variables
+
+
+
+
+
+@import '~bootstrap/scss/bootstrap';
+@import 'mutual/variables';
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $fo1;
+}
+
+
+
+@import 'mutual/animateCSS';
+@import 'mutual/mixins';
+@import 'mutual/defaultClasses';
+@import 'mutual/textClasses';
+@import 'mutual/helpers';
+@import 'mutual/header';
+@import 'mutual/footer';
+
+
+@import 'guest/homepage';
+@import 'guest/checkProduct';
+@import 'guest/listing';
+@import 'guest/categories';
+@import 'guest/manufacturers';
+@import 'guest/suggest';
+@import 'guest/listingGroups';
+
+
+@import 'admin/dashboard';
+@import 'admin/listedItems';
+@import 'admin/createOrEdit';
+@import 'admin/notificationInHeader';
+@import 'admin/listedNotifications';
+
+
+#app{
+  min-height:100vh;
+}

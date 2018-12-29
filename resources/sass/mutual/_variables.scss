@@ -1,0 +1,97 @@
+
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: "Nunito", sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66D9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+
+// non-default Colors
+$c0 : #fff;
+$c1 : #28A745; //zelena
+$c2 : #8e3ccb; //ljubicasta
+$c3 : #fc59a3; //pink
+$c4 : #fe7e0f; //narandza
+$c5 : #ffd400; //zuta
+
+$dangerColor : #bb2124;
+
+$c107 : rgba(#28a745, 0.7); //zelena
+$c207 : rgba(#8e3ccb, 0.7); //ljubicasta
+$c307 : rgba(#fc5aa4, 0.7); //pink
+$c407 : rgba(#fe7e0f, 0.7); //narandza
+$c507 : rgba(#ffd400, 0.7); //zuta
+
+
+$c105 : rgba(#28a745, 0.5); //zelena
+$c205 : rgba(#8e3ccb, 0.5); //ljubicasta
+$c305 : rgba(#fc5aa4, 0.5); //pink
+$c405 : rgba(#fe7e0f, 0.5); //narandza
+$c505 : rgba(#ffd400, 0.5); //zuta
+
+$c104 : rgba(#28a745, 0.4); //zelena
+$c204 : rgba(#8e3ccb, 0.4); //ljubicasta
+$c304 : rgba(#fc5aa4, 0.4); //pink
+$c404 : rgba(#fe7e0f, 0.4); //narandza
+$c504 : rgba(#ffd400, 0.4); //zuta
+
+
+$c102 : rgba(#28a745, 0.2); //zelena
+$c202 : rgba(#8e3ccb, 0.2); //ljubicasta
+$c302 : rgba(#fc5aa4, 0.2); //pink
+$c402 : rgba(#fe7e0f, 0.2); //narandza
+$c502 : rgba(#ffd400, 0.2); //zuta
+
+
+
+
+
+//Borders
+$blab : 1px solid black;
+$redb : 1px solid red;
+$blub : 1px solid blue;
+$greb : 1px solid green;
+$yelb : 1px solid yellow;
+$aqub : 1px solid aqua;
+$orab : 1px solid orange;
+$grab : 1px solid rgb(186, 180, 172);
+$whib : 1px solid #fff;
+$c1b: 1px solid $c1;
+$c2b: 1px solid $c2;
+$c3b: 1px solid $c3;
+$c4b: 1px solid $c4;
+$c5b: 1px solid $c5;
+
+
+$blab2 : 2px solid black;
+$redb2 : 2px solid red;
+$blub2 : 2px solid blue;
+$greb2 : 2px solid green;
+$yelb2 : 2px solid yellow;
+$aqub2 : 2px solid aqua;
+$orab2 : 2px solid orange;
+$grab2 : 2px solid rgb(186, 180, 172);
+$whib2 : 2px solid #fff;
+
+//Breakpoints
+$sm : 576px;
+$md : 768px;
+$lg : 992px;
+$xl : 1140px;
+
+//Fonts
+$fo1: 'Maven Pro', sans-serif;

@@ -1,0 +1,62 @@
+.pagination{
+  display: flex;
+  justify-content: center;
+  & ul{
+    // width: 100%;
+  }
+}
+
+
+.listingTable{
+
+  & td{
+    padding: 1%;
+  }
+
+
+  & tr:first-of-type{
+    border: $c1b;
+
+    & th{
+      font-weight: 700;
+      padding: 2% 1%;
+    }
+  }
+
+  & tr:not(:first-of-type){
+    border-bottom: $c2b;
+  }
+}
+
+
+.alphabet{
+  display: flex;
+  flex-wrap: wrap;
+
+  &>div{
+    width: calc(100% / 10 - 2%);
+    margin: 1%;
+
+    @media screen and (min-width: $md){
+      width: calc(100% / 10 - 2%);
+    }
+
+    @media screen and (min-width: $lg){
+      width: calc(100% / 15 - 2%);
+    }
+
+  }
+
+  & a {
+    color: $c2;
+  }
+}
+
+
+.legalProduct{
+  color: $c1;
+}
+
+.illegalProduct{
+  color: red;
+}

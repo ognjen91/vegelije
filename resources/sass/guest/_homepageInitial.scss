@@ -1,0 +1,54 @@
+.randomTags{
+  // border: $blab;
+  z-index: 1;
+
+  @media screen and (min-width: $md){
+    order: 2;
+    position: fixed;
+    right: 0;
+  }
+  &>a{
+   padding: 2%;
+  }
+
+  &>div{
+    justify-content: center;
+
+    @media screen and (min-width: $md){
+      justify-content: flex-start;
+    }
+
+  }
+}
+
+  .tagsOnSearch{
+      @media screen and (max-width: 767px){
+        display: none !important;
+    }
+  }
+
+  .initialResults{
+    // border: $greb;
+
+    @media screen and (min-width: $md){
+      order: 1;
+    }
+  }
+
+  .productQuickInfo{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+
+  .randomTag{
+    z-index: 1;
+  }
+
+  .product{
+    // & h1, & h2, & h3, & h4,& h5,& h6{
+    & *{
+    }
+  }

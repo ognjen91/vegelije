@@ -1,0 +1,13 @@
+.activeProductImage{
+  // border: $blab2;
+  @include flexCenterImg(50%);
+}
+
+
+.creationForm{
+  color: $c1;
+}
+
+#selectingProductGroups{
+  display: none;
+}

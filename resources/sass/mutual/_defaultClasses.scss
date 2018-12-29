@@ -1,0 +1,147 @@
+.flexCentered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centeredImg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & img {
+    width: 100%;
+  }
+}
+
+.coloredBtn{
+  background-color: $c1;
+  border-color: $c1;
+
+  &:hover{
+    background-color: $c105;
+    border-color: $c105;
+  }
+}
+
+.centeredLinkImg{
+  &>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &>a>img {
+    width: 100%;
+  }
+}
+
+
+.adminTable {
+  & tr:first-of-type {
+    border: 2px solid $c2;
+    font-weight: 600;
+
+    &>th{
+      padding: 1%;
+
+      &:not(:last-of-type){
+        border-right: 1px solid rgb(193, 181, 196);
+      }
+    }
+  }
+
+  &>tr{
+
+  }
+
+  & tr>td {
+    padding: 1%;
+  }
+}
+
+
+.c1Button{
+  background-color: $c1 !important;
+  color: #fff;
+  border: 1px solid $c1;
+
+  &:hover{
+    background-color: $c105 !important;
+    color: #fff;
+    border: 1px solid $c105;
+
+  }
+}
+
+.c2Button{
+  background-color: $c2 !important;
+  color: #fff;
+  border: 1px solid $c2;
+
+  &:hover{
+    background-color: $c205 !important;
+    color: #fff;
+    border: 1px solid $c205;
+
+  }
+}
+
+.vegelijeButton{
+  background-color: $c2 !important;
+  color: #fff;
+  border: 1px solid $c2;
+
+  @media screen and (min-width: $md){
+    // background-color: $c2 !important;
+    border: 1px solid $c2;
+   }
+
+  &:hover{
+    background-color: $c205 !important;
+    color: #fff;
+    border: 1px solid $c205;
+
+    @media screen and (min-width: $md){
+      // background-color: $c2 !important;
+      border: 1px solid $c2;
+     }
+
+  }
+}
+
+
+
+
+
+
+.noUnderline{
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+.c1Link{
+  color: $c1;
+
+  &:hover{
+    color: $c1;
+  }
+}
+
+.c2Link{
+  color: $c1;
+
+  &:hover{
+    color: $c2;
+  }
+}
+
+
+.dangerLink{
+  color: $dangerColor;
+
+  &:hover{
+    color: $dangerColor;
+  }
+}

@@ -1,0 +1,111 @@
+#bars{
+  background-color: $c2;
+  color: #fff;
+
+
+
+}
+
+#bars.fixedToTop{
+  position: fixed;
+  top : 0;
+  left: 0;
+  z-index: 5;
+  background-color: $c205;
+
+  @media screen and (max-width: $md){
+    background-color: $c205 !important;
+  }
+
+}
+
+.searchBar{
+  display: flex;
+  justify-content: center;
+}
+
+#productBar{
+  // border: $greb2;
+  width: 100%;
+}
+
+#manufacturerBar{
+  // border: $greb2;
+  width: 100%;
+}
+
+.searchSuggestions{
+  display: flex;
+  justify-content: center;
+
+  & ul{
+
+    list-style: none;
+  }
+
+  & li{
+    padding: 0 2%;
+    margin-bottom: 1%;
+    cursor: pointer;
+    color: $c2;
+
+    &:hover{
+      background-color: $c1;
+      color: #fff !important;
+    }
+  }
+}
+
+.textAndSearchBar{
+  margin-bottom: 0  !important;
+}
+
+//dajem apsolutnu poziciju da ne bi pomjeralo sadrzaj,
+//a z-index je veci za proizvode jer su iznad u mob verziji
+.searchSuggestions{
+    position: absolute;
+    z-index: 4;
+}
+
+.manufacturerSuggestions{
+    position: absolute;
+    z-index: 3;
+}
+
+
+
+.suggestions{
+  width: 100%;
+  border: $c2b;
+  background-color: #fff;
+
+}
+
+.searchBtn{
+  & img{
+    cursor:pointer;
+  }
+  // border: $redb;
+  z-index: 7;
+  @include flexCenterImg();
+  @media screen and (min-width: $sm){
+    @include flexCenterImg(95%);
+  }
+
+  @media screen and (min-width: $md){
+    @include flexCenterImg(70%);
+  }
+
+  @media screen and (min-width: $lg){
+    @include flexCenterImg(25%);
+  }
+}
+
+
+
+#randomTags{
+  z-index: 1;
+  & *{
+    z-index: 1;
+  }
+}

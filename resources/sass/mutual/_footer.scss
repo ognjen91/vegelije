@@ -1,0 +1,21 @@
+footer{
+  background-color: $c207;
+  padding: 1% 5%;
+  color: #fff;
+  z-index: 9;
+
+  & a{
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+
+    &.footerCat{
+      text-transform: uppercase;
+    }
+
+    &:hover{
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
