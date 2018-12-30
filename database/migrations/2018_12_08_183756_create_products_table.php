@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('declarationImage')->nullable();
             $table->unsignedInteger('fromSuggestion')->default('0');
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('viewsCount')->default('0');
             $table->timestamps();
             $table->softDeletes();
         });

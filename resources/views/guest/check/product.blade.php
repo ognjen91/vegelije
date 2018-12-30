@@ -42,8 +42,13 @@
 
       {{-- DA LI JE OK ZA VEGANE I VEGETARIJANCE --}}
         @if(count($okFor))
-      <div class="col-8 offset-2 p-2  col-lg-3  offset-lg-0 mb-4  d-flex justify-content-center align-items-center">
-          <p class='text-light text-center w-100 p-2 p-lg-2 rounded  okFor'><strong>Proizvod je pogodan {{$legality == "vegetarian"? "za vegetarijance, ali ne i za vegane" : "i za vegane i za vegetarijance"}}</strong></p>
+      <div class="col-8 offset-2 p-2  col-lg-3  offset-lg-0 mb-4  d-flex justify-content-center align-items-center flex-column">
+          <p class='text-light text-center w-100 p-2 p-lg-2 rounded  okFor'><strong>Proizvod je pogodan {{$legality == "vegetarian"? "za vegetarijance, ali ne i za vegane" : "i za vegane i za vegetarijance"}}</strong>
+          <br><i class="far fa-question-circle text-light" data-toggle="tooltip" data-placement="top"
+           @if($product->category->name !== 'ostalo')title="{{$legality == "vegetarian"? "Proizvod sadrži sastojke životinjskog porekla, ali ne sadrži meso. Za dodatne informacije, molimo proverite opis ili deklaraciju proizvoda." : "Proizvod ne sadrži sastojke životinjskog porekla"}}"
+           @else title="{{$legality == "vegetarian"? "Proizvod sadrži sastojke životinjskog porekla. Molimo proverite dodatne informacije ili deklaraciju proizvoda." : "Proizvod ne sadrži sastojke životinjskog porekla"}}" @endif></i>
+        </p>
+
       </div>
         @endif
       {{-- //DA LI JE OK ZA VEGANE I VEGETARIJANCE --}}
@@ -84,6 +89,10 @@
 @endif
 
 
+<div class="col-12 col-md-8 mt-5">
+   <p class="text-center w-100 c5"><small>Proizvod {{$product->name}} proizvođača {{$product->manufacturer->name}} je ubačen {{$product->created_at->format('d. m. Y.')}} i od tada je pregledan
+     <strong>{{$product->viewsCount}}</strong> {{$product->viewsCount%10 !== 1? "puta" : "put"}}</small></p>
+</div>
 
 
 @endsection

@@ -16,6 +16,7 @@
             <li class="menuItem"><a href="{{route('guestListProductGroups')}}" class="fo1">Grupe proizvoda</a></li>
             <li class="menuItem"><a href="{{route('guestListCategories')}}" class="fo1">Kategorije</a></li>
             <li class="menuItem"><a href="{{route('listTags')}}" class="fo1">Oznake</a></li>
+            <li class="menuItem"><a href="{{route('topLists')}}" class="fo1">Top liste</a></li>
             <li class="menuItem"><a href="{{route('suggestProduct')}}" class="fo1">Predložite</a></li>
             <li class="menuItem"><a href="{{route('aboutUs')}}" class="fo1">O VEGELIJAMA</a></li>
           @else

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="col-10 offset-1 col-md-8 offset-2">
+<div class="col-10 offset-1 col-md-8 offset-md-2">
   <div class="row">
     <div class="col-12 mb-3">
       <h1 class='fo1 spaced2 mb-2 mb-lg-4 c1'>Predložite proizvod</h1>
@@ -78,7 +78,8 @@
         </div>
 
         <div class="form-group my-4">
-          <label for="productImage"><h4 class="fo1 c2"><strong>Slika proizvoda <small>(nije obavezno)</small></strong></h4></label>
+          <label for="productImage"><h4 class="fo1 c2"><strong>Slika proizvoda <small>(nije obavezno)</small></strong></h4><br>
+          <h6 class='c2'>*Molimo Vas da nam šaljete samo slike koje ste sami slikali.</h6></label>
           <input type="file" class="form-control-file" id="productImage" name="image">
         </div>
 

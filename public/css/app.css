@@ -14490,6 +14490,12 @@ footer a:hover {
   text-decoration: none;
 }
 
+@media screen and (max-width: 768px) {
+  .content {
+    display: inherit !important;
+  }
+}
+
 html,
 body {
   width: 100vw;

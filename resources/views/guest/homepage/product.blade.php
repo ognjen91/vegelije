@@ -1,4 +1,4 @@
-<div class="product col-10   col-sm-8  col-lg-5 offset-lg-0 pt-2 pb-4 mr-lg-4">
+<div class="product col-10   col-sm-8  col-lg-5 offset-lg-0 pt-2 pb-4 mr-lg-4 @if($key>5) d-none d-md-inline-block @endif">
   <div class="row">
 
     {{-- SLIKA PROIZVODA --}}

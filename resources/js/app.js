@@ -16,6 +16,7 @@ Vue.component('searchResult', require('./components/guest/Product.vue'));
 Vue.component('searchButton', require('./components/guest/SearchButton.vue'));
 Vue.component('noProductDanger', require('./components/guest/NoProductDanger.vue'));
 Vue.component('listingProductsAndProductGroups', require('./components/guest/listing.vue'));
+Vue.component('listingTopProductsAndProductGroups', require('./components/guest/listingTop.vue'));
 Vue.component('tagInput', require('./components/guest/tagInput.vue'));
 Vue.component('manufacturersSearch', require('./components/guest/ManufacturersPageSearchBar.vue'));
 Vue.component('manufacturersResults', require('./components/guest/ManufacturersPageResults.vue'));
@@ -45,6 +46,10 @@ const app = new Vue({
     el: '#app',
     store,
 });
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 
 
 

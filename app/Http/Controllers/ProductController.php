@@ -8,6 +8,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Events\SuggestionRejected;
 use App\Events\SuggestionAccepted;
+use App\Counter;
 
 class ProductController extends Controller
 {
@@ -51,6 +52,11 @@ class ProductController extends Controller
    }
 
    public function view(Product $product){
+     $product->viewsCount += 1;
+     $product->save();
+
+     Counter::incrementProductsViews();
+
      //da bih zapamtio iz koje je pretrage:
      if(isset($_GET['term'])) session(['term'=> $_GET['term']]) ;
      if(isset($_GET['manuf'])) session(['manuf'=> $_GET['manuf']]) ;

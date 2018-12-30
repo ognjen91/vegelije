@@ -32,7 +32,7 @@ Route::get('/kategorije', 'CategoryController@index')->name('guestListCategories
 Route::post('/searchSuggestions', 'SearchSuggestionController@index')->name('productSuggestions');
 Route::post('/search', 'SearchResultsController@index')->name('productResults');
 
-
+Route::get('/top_liste', 'CounterController@index')->name('topLists');
 Route::get('/o_nama', 'WelcomeController@about')->name('aboutUs');
 
 Auth::routes();

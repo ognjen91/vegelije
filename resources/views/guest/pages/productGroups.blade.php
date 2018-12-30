@@ -12,8 +12,8 @@
   <p class="col-12 selectListing d-flex mb-2 mb-md-3 text-center">
 
 @if(!isset($_GET['sortiranje']))
-    <a href="{{route(\Route::currentRouteName(), ['sortiranje'=>'ime_asc'])}}" class='c2Link mr-2'>
-      <small><i class="fas fa-caret-down"></i>SORTIRAJ PO NAZIVU</small>
+    <a href="{{route(\Route::currentRouteName(), ['sortiranje'=>'ime_desc'])}}" class='c2Link mr-2'>
+      <small><i class="fas fa-caret-up"></i>SORTIRAJ PO NAZIVU</small>
     </a>
     <a href="{{route(\Route::currentRouteName(), ['sortiranje'=>'proizvodi_desc'])}}" class='c2Link ml-2'>
       <small>SORTIRAJ PO BROJU PROIZVODA</small>

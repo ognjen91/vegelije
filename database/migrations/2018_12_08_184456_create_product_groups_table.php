@@ -21,6 +21,7 @@ class CreateProductGroupsTable extends Migration
           $table->string('image')->default('placeholder.png');
           $table->unsignedInteger('fromSuggestion')->default('0');
           $table->unsignedInteger('user_id');
+          $table->unsignedInteger('viewsCount')->default('0');
           $table->timestamps();
           $table->softDeletes();
         });

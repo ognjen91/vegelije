@@ -14,7 +14,7 @@
   </div>
   <div class="col-10 offset-1 col-md-8 offset-md-2">
 
-    <h3 class="aboutText px-3 py-2 text-center">
+    <h3 class="aboutText px-3 py-2 text-center mb-5">
       <span class="c1"><strong>Vegelije</strong></span> su sajt nastale trudom jednog programera i grupe dobrih
       ljudi koji dobrovoljno učestvuju u njihovom održavanju. <br>
       Ukoliko želite da pomognete projekat, to možete učiniti <a href="{{route('suggestProduct')}}" class="c4Link">
@@ -23,6 +23,14 @@
       Takođe, veoma nam znači Vaše mišljenje!
       Svoja zapažanja i predloge možete poslati na <span class='c4'>vegelije@gmail.com</span>
     </h3>
+
+    <h6 class="text-center c5"><span class='c1'><strong>Vegelije</strong></span> u brojkama</h6>
+    <p class="c5 text-center"><strong>{{$noOfProducts}}</strong> proizvoda od <strong>{{$noOfManufacturers}}</strong> proizvođača pregledanih ukupno <strong>{{$productViews}}</strong> {{$productViews%10!==1? "puta" : "put"}} <br>
+                              <strong>{{$noOfProductGroups}}</strong> grupa proizvoda pregledanih ukupno <strong>{{$productGroupsViews}}</strong> {{$productGroupsViews%10!==1? "puta" : "put"}} <br>
+                              <strong>{{$noOfTags}}</strong> oznaka <br>
+                              <strong>{{$noOfCategories}}</strong> kategorija <br>
+                              <strong>i nastavljamo da brojimo...</strong>
+                             </p>
 
   </div>
 </div>

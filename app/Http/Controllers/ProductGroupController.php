@@ -8,6 +8,8 @@ use App\Http\Requests\StoreProductGroupRequest;
 use App\Http\Requests\UpdateProductGroupRequest;
 use App\Events\SuggestionRejected;
 use App\Events\SuggestionAccepted;
+use App\Counter;
+
 
 class ProductGroupController extends Controller
 {
@@ -58,6 +60,11 @@ class ProductGroupController extends Controller
 
   public function view(ProductGroup $productGroup){
     $product = $productGroup;
+    $product->viewsCount += 1;
+    $product->save();
+
+    Counter::incrementProductGroupsViews();
+
     $productGroupsProducts = $product->products()->orderBy('name', 'asc')->with('manufacturer', 'category')->get();
     //da bih zapamtio iz koje je pretrage:
     if(isset($_GET['term'])) session(['term'=> $_GET['term']]) ;

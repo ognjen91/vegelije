@@ -71,7 +71,10 @@
 @endif
 </div>
 
-
+<div class="col-12 col-md-8 mt-5">
+   <p class="text-center w-100 c2"><small>Grupa proizvoda {{$product->name}} je kreirana {{$product->created_at->format('d. m. Y.')}} i od tada je pregledana
+     <strong>{{$product->viewsCount}}</strong> {{$product->viewsCount%10 !== 1? "puta" : "put"}}</small></p>
+</div>
 
 
 
