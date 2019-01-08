@@ -16,11 +16,12 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Maven+Pro" rel="stylesheet">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 
 <body>
@@ -34,7 +35,9 @@
         @include('includes.success')
 
         {{-- ({{dd(Route::currentRouteName())}}) --}}
-        <div class="row content pb-5 @if(Route::currentRouteName() == 'checkProduct') checkProduct @endif">
+        <div class="row content pb-5 @if(Route::currentRouteName() == 'checkProduct') @if(!$product->isRecommended) checkProduct @else checkRecommended @endif
+        @elseif(Route::currentRouteName() == 'welcome') mb-2 mb-lg-3 @else {{Route::currentRouteName()}} @endif">
+
             @auth
               <div class="col-12 py-2">
                 <h3 class='fo1 text-align-center spaced font-weight-bold'>@yield('adminTitle')</h3>

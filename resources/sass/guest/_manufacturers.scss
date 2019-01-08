@@ -1,3 +1,25 @@
+input#manufacturersSearch::-webkit-input-placeholder {
+  // color: orange;
+font-family: $fo2;
+
+}
+input#manufacturersSearch::-moz-placeholder {
+  // color: orange;
+font-family: $fo2;
+}
+input#manufacturersSearch::-ms-input-placeholder  {
+  // color: orange;
+font-family: $fo2;
+}
+input#manufacturersSearch::-moz-placeholder {
+  // color: orange;
+font-family: $fo2;
+}
+
+
+
+
+
 .resultsOf{
   list-style: none;
 }
@@ -31,4 +53,29 @@
     background-color: rgba(#8e3ccb, 0.2);
     // margin-right: 1%;
   }
+}
+
+
+.manufImage{
+  @include flexCenterImg(80%);
+}
+
+
+
+ .manufImageInResult{
+    @include flexCenterImg(80%);
+    @media screen and (min-width: $sm){
+      @include flexCenterImg(65%);
+    }
+
+    @media screen and (min-width: $lg){
+      order: 3;
+    }
+  }
+
+
+.gotoManuf{
+  align-items: center;
+  justify-content: center;
+  // border: $redb;
 }

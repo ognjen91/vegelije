@@ -1,4 +1,4 @@
-<div class="col-12">
+<div class="col-12 px-1">
 
   @if(\Route::currentRouteName() !== 'home')<a href="{{route('home')}}" class="btn btn-light m-2">Dashboard</a>@endif
 

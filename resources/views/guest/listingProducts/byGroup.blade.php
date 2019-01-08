@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="col-12">
+<div class="@if($secondAd) col-12 col-md-9 @else col-12 @endif">
 
 <h1 class="c1 text-center mb-4">Grupa proizvoda {{$groupName}}</h1>
 
@@ -14,7 +14,11 @@
 
 </div>
 
-
+@if($secondAd && $products->count())
+<div class="col-12 col-md-3 second">
+@include('includes.ads.SecondAd')
+</div>
+@endif
 
 
 

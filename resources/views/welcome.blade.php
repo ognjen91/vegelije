@@ -3,10 +3,16 @@
 
 @section('content')
 
+@if($mainAds->count())
+<market-main-top :main-ad='{{$mainAds[rand(0, $mainAds->count()-1)]}}'></market-main-top>
+@endif
 <no-product-danger></no-product-danger>
 
-<div class="col-12 mb-4 mt-3 mt-sm-2 mt-lg-0 titleWrap ">
-  <h1 class="text-center c2 spaced appTitle">Vege Li Je <span class='c1' id="qmark"><strong>?</strong></span></h1>
+
+
+<div class="col-12 w-100 mb-2 mb-md-3 mb-lg-4 mt-3 mt-sm-2 mt-lg-0 titleWrap d-flex flex-column">
+  <h1 class="text-center w-100 c2 spaced appTitle">Vege Li Je <span class='c1' id="qmark"><strong>?</strong></span></h1>
+  <h5 class="text-center w-100 c2 spaced2"><small>provera vege i ostalih proizvoda</small></h5>
 </div>
 
 {{-- ---------BARS+SEARCH BTN --}}
@@ -40,9 +46,20 @@
 </div>
 
 
-{{-- <div class="side-content col-12 col-md-3"> --}}
+<div class="col-12 col-md-9 col-lg-9 bottom d-flex justify-content-center mb-2 mb-md-4">
+  @include('includes.ads.MainAdDown')
+</div>
+
 
 </div>
 @endsection
 
 {{-- factory('App\Product', 300)->create()->each(function($u){$u->legalities()->sync([1,2]);); --}}
+<style>
+
+  #app{
+    background-color: rgba(#ffffff, 0) !important;
+    background-image: linear-gradient(to right, #b29ec2, #fff);
+  }
+
+</style>

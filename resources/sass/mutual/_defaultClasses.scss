@@ -91,6 +91,9 @@
   background-color: $c2 !important;
   color: #fff;
   border: 1px solid $c2;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  // font-family: $fo2;
 
   @media screen and (min-width: $md){
     // background-color: $c2 !important;
@@ -110,6 +113,28 @@
   }
 }
 
+.vegelijeButton2{
+  background-color: $c1 !important;
+  color: #fff;
+  border: 1px solid $c1;
+
+  @media screen and (min-width: $md){
+    // background-color: $c2 !important;
+    border: 1px solid $c1;
+   }
+
+  &:hover{
+    background-color: $c105 !important;
+    color: #fff;
+    border: 1px solid $c105;
+
+    @media screen and (min-width: $md){
+      // background-color: $c2 !important;
+      border: 1px solid $c1;
+     }
+
+  }
+}
 
 
 
@@ -130,10 +155,18 @@
 }
 
 .c2Link{
-  color: $c1;
+  color: $c2;
 
   &:hover{
     color: $c2;
+  }
+}
+
+.c5Link{
+  color: $c5;
+
+  &:hover{
+    color: $c5;
   }
 }
 

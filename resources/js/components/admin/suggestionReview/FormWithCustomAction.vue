@@ -6,7 +6,25 @@
       <h3 class="text-center">Ovaj predlog je već obrađen i nije prihvaćen. Ipak, i dalje je moguće prihvatiti ga.</h3>
     </div>
 
+
+    <p class="c1" @click="showSimilars = !showSimilars"><strong>
+      Prikazi ili sakrij slične rezultate po imenu / ako postoje
+      <i class="fas " :class="{'fa-chevron-up': !showSimilars, 'fa-chevron-down': showSimilars}"></i>
+    </strong></p>
+     <div v-if="showSimilars">
+       <slot name='similars'></slot>
+     </div>
+
+
+
     <slot name='token'></slot>
+
+
+
+
+
+
+
 
     <slot name="defaults"></slot>
 
@@ -17,6 +35,9 @@
     <div  v-if='isExactProduct'>
       <slot  name="isVege"></slot>
     </div>
+
+
+      <slot  name="category"></slot>
 
 
     <slot name="commentEditor"></slot>
@@ -51,7 +72,8 @@ export default {
   props : ['suggestionId', 'alreadyDeleted'],
   data(){
     return{
-      suggestionAccepted : 1
+      suggestionAccepted : 1,
+      showSimilars : 0
 
     }
   },

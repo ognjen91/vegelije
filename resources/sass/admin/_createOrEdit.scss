@@ -3,9 +3,17 @@
   @include flexCenterImg(50%);
 }
 
+.imageToSelect{
+  @include flexCenterImg(40%);
+}
+
 
 .creationForm{
   color: $c1;
+}
+
+.disabledField{
+  pointer-events: none;
 }
 
 #selectingProductGroups{

@@ -1,101 +1,20 @@
 @import 'menu';
 
 
+.adminHeader{
+  background-color: rgba(255, 255, 255, 0);
+}
+
 .logo{
   @include flexCenterImg(120%);
 
     @media screen and (min-width: $sm) {
-      @include flexCenterImg(80%);
+      @include flexCenterImg(82%);
     }
 
 
     @media screen and (min-width: $lg) {
-      @include flexCenterImg(60%);
+      @include flexCenterImg(92%);
     }
 
   }
-
-
-
-
-//polja za pretragu
-// .scrolledToTop{
-//   // animation-fill-mode: forwards;
-//   // background-color: $pla05;
-//   @media screen and (min-width: $lg) {
-// -webkit-animation: fade linear 0.5s forwards;
-// animation: fade linear 0.5s forwards;
-// -moz-animation: fade linear 0.5s forwards;
-// -o-animation: fade 0.5s linear forwards;
-// }
-// }
-//
-// @-webkit-keyframes fade {
-// // 0% {opacity: 0}
-// // 50% {opacity: 0.5}
-// // 100% {opacity:1}
-// 0% {background-color: rgba(#e6edf2, 0);opacity:0.79;}
-// 50% {background-color: rgba(#e6edf2, 0.4)}
-// 100% {background-color: rgba(#e6edf2, 0.9); opacity:0.8;}
-// }
-//
-// @-moz-keyframes fade{
-//   // 0% {opacity: 0}
-//   // 50% {opacity: 0.5}
-//   // 100% {opacity:1}
-//   0% {background-color: rgba(#e6edf2, 0);opacity:0.79;}
-//   50% {background-color: rgba(#e6edf2, 0.4)}
-//   100% {background-color: rgba(#e6edf2, 0.9); opacity:0.8;}
-// }
-//
-// @keyframes fade {
-//
-//   0% {background-color: rgba(#e6edf2, 0);opacity:0.79;}
-//   50% {background-color: rgba(#e6edf2, 0.4)}
-//   100% {background-color: rgba(#e6edf2, 0.9); opacity:0.8;}
-//     }
-// @-o-keyframes fade {
-//
-//   0% {background-color: rgba(#e6edf2, 0);opacity:0.79;}
-//   50% {background-color: rgba(#e6edf2, 0.4)}
-//   100% {background-color: rgba(#e6edf2, 0.9); opacity:0.8;}
-//
-// }
-//
-// .notScrolledToTop{
-//     @media screen and (min-width: $lg) {
-// animation-fill-mode: forwards; //da ostanu propsi nakon animacije!!!
-//   -webkit-animation: fadeOut linear  0.5s forwards;
-// animation: fadeOut linear  0.5s forwards;
-// -moz-animation: fadeOut  linear 0.5s forwards;
-// -o-animation: fadeOut  linear 0.5s forwards;
-// }
-// }
-//
-// @-webkit-keyframes fadeOut {
-//
-// 0% {background-color: rgba(#e6edf2, 0.9);opacity:0.8;}
-// 50% {background-color: rgba(#e6edf2, 0.4)}
-// 100% {background-color: rgba(#e6edf2, 0);opacity:0.79;}
-// }
-//
-// @-moz-keyframes fadeOut{
-//
-//   0% {background-color: rgba(#e6edf2, 0.9);opacity:0.8;}
-//   50% {background-color: rgba(#e6edf2, 0.4)}
-//   100% {background-color: rgba(#e6edf2, 0);opacity:0.79;}
-// }
-//
-// @keyframes fadeOut {
-//
-//   0% {background-color: rgba(#e6edf2, 0.9);opacity:0.8;}
-//   50% {background-color: rgba(#e6edf2, 0.4)}
-//   100% {background-color: rgba(#e6edf2, 0);opacity:0.79;}
-//     }
-// @-o-keyframes fadeOut {
-//
-//   0% {background-color: rgba(#e6edf2, 0.9);opacity:0.8;}
-//   50% {background-color: rgba(#e6edf2, 0.4)}
-//   100% {background-color: rgba(#e6edf2, 0);opacity:0.79;}
-//
-// }

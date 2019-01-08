@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 {{-- {{dd(get_class($product))}} --}}
@@ -28,13 +28,15 @@
 <product-form-with-custom-action @edit :edit='true'   @endedit @if(isset($product)) @if($product->deleted_at) :disable-form="true" @else :disable-form="false" @endif @endif>
   <template slot='token'>@csrf</template>
 
+
+  {{-- default unosi, koji postoje i za tacan proizvod i za grupu proizvoda --}}
   <div slot="defaults">
 
   @edit
     <div class="col-12 alert alert-info">
 
       @if($product->fromSuggestion)
-        <h4 class="fo1">Ovaj proizvod je dodat iz sugestije</h4>
+        <h4 class="fo1">Ovaj proizvod je dodat iz sugestije @if($product->suggestedBy) posetioca {{$product->suggestedBy}} @endif</h4>
         <h4 class="fo1">Odobrio {{$product->user->name}}</h4>
       @else
         <h4 class="fo1">Dodao {{$product->user->name}}</h4>
@@ -47,13 +49,9 @@
   @endedit
 
 
-
-
-      {{-- default unosi, koji postoje i za tacan proizvod i za grupu proizvoda --}}
-
       {{-- izbor da li je proizvod ili grupa proizvoda --}}
       {{-- iz ove komponente potice logika rute --}}
-      <product-or-product-group class='my-4 p-2'
+      <product-or-product-group class='@if(isset($product)) disabledField invisible @else my-4 p-2  @endif '
       @create
       :editing="false"
       @errors :product-or-product-group="`{{old('productOrProductGroup')}}`" @else :product-or-product-group="'product'" @enderrors
@@ -76,19 +74,14 @@
       @else
       @edit :old-value="'{{$product->name}}'" @endedit
       @enderrors>
-      <template slot='inputTitle'><strong>Naziv proizvoda</strong></template>
+      <template slot='inputTitle'><strong>Naziv @edit{{isset($product->manufacturer_id)? "proizvoda" : "grupe proizvoda"}}@endedit</strong></template>
       </custom-input>
 
 
        {{-- kategorija proizvoda --}}
-      <custom-select :id='"productCategory"' :name="'category_id'" :all="{{$categories}}"
-      @errors
-      :old-value="`{{old('category_id')}}`"
-      @else
-      @edit :old-value="'{{$product->category_id}}'"@endedit
-      @enderrors>
-      <template slot='selectTitle'>Kategorija proizvoda</template>
-      </custom-select>
+      <template slot='category'>
+        @include('admin.createOrEdit.category')
+      </template>
 
 
   </div>
@@ -113,30 +106,26 @@
     </div>
 
 
-  {{-- proizvodjac, za konkretan proizvod --}}
-  <div slot="manufacturer">
-  <custom-select :id='"productManufacturer"' :name="'manufacturer_id'" :all="{{$manufacturers}}"
-   @errors :old-value="`{{old('manufacturer_id')}}`"
-   @else
-   @edit :old-value="'{{$product->manufacturer_id}}'" @endedit
-   @enderrors>
-  <template slot='selectTitle'>Proizvođač</template>
-  </custom-select>
-  <p class='fo1'>Proizvođača nema na listi? <a href="#">Dodajte ga</a></p>
-  </div>
+    {{-- proizvodjac, za konkretan proizvod --}}
+    <div slot="manufacturer">
+    <custom-select :id='"productManufacturer"' :name="'manufacturer_id'" :all="{{$manufacturers}}"
+     @errors :old-value="`{{old('manufacturer_id')}}`"
+     @else
+     @edit :old-value="'{{$product->manufacturer_id}}'" @endedit
+     @enderrors>
+    <template slot='selectTitle'>Proizvođač</template>
+    </custom-select>
+    <p class='fo1'>Proizvođača nema na listi? <a href="#">Dodajte ga</a></p>
+    </div>
 
 
-  {{-- slika proizvoda/grupe proizvoda --}}
-  <div slot="image" class="my-4">
-    @include('admin.createOrEdit.image')
-  </div>
-{{-- slika deklaracije proizvoda, za konkretan proizvod --}}
-  <div slot='declarationImage' class="my-4">
-    @include('admin.createOrEdit.declarationImage')
-  </div>
+    {{-- slika proizvoda/grupe proizvoda --}}
+    <div slot="image" class="my-4">
+      @include('admin.createOrEdit.images.image')
+    </div>
 
 
-
+  {{-- ako je u pitanju konkretan proizvod, izbor grupa --}}
   <div slot='selectGroups' class="my-4">
     @include('admin.createOrEdit.selectProductGroups')
   </div>
@@ -154,10 +143,16 @@
   </div>
 
 
+{{-- ===========DA LI JE PROIZVOD PREPROUCEN======== --}}
+@include('admin.createOrEdit.isRecommended')
+
+
+
 </product-form-with-custom-action>
 
-{{-- dodatno, duge za brisanje/vracanje --}}
 @edit
+{{-- dodatno, duge za brisanje/vracanje --}}
+
 <div class="col-12">
 @if(!$product->deleted_at)
   <button-warning-and-action :url="'{{$product->manufacturer_id? route('deleteProduct', $product->id) : route('deleteProductGroup', $product->id)}}'" :target-item-name="'{{$product->name}}'" :button='"btn btn-danger btn-lg btn-block"' :method="'delete'">
@@ -168,6 +163,24 @@
     </p>
   </button-warning-and-action>
 @endif
+
+
+{{-- dodanto, prijedlozi za promjenu slika --}}
+@if(isset($product->manufacturer_id))
+  @include('admin.createOrEdit.listProductSuggestions')
+@else
+  @include('admin.createOrEdit.listProductGroupSuggestions')
+    {{-- ++za grupe proizvoda izlistavanje proizvoda koji pripadaju grupi --}}
+  @if($product->products->count())
+    <h2 class="my-3 text-center c2">Proizvodi povezani sa ovom grupom proizvoda</h2>
+  <listing-products-and-product-groups :products="{{$product->products()->with('category', 'manufacturer')->get()}}"></listing-products-and-product-groups>
+    @else
+      <h2 class="my-3 text-center c2">Nema konkretnih proizvoda povezanih sa ovom grupom proizvoda!</h2>
+   @endif
+
+@endif
+
+
 @endedit
 </div>
 

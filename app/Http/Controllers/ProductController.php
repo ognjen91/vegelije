@@ -8,10 +8,17 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Events\SuggestionRejected;
 use App\Events\SuggestionAccepted;
+use App\MainAd;
 use App\Counter;
 
 class ProductController extends Controller
 {
+
+
+    public function __construct()
+  {
+          $this->middleware('auth', ['only' => ['store', 'edit', 'update', 'destroy', 'indexTrash', 'restore']]);
+  }
 
    public function index($letter = 'A'){
      $products = Product::where('name', 'LIKE', $letter.'%');
@@ -47,7 +54,7 @@ class ProductController extends Controller
             event(new SuggestionAccepted($product, $request));
             }
             $msg = !request('isFromSuggestion')? 'Proizvod je uspješno ubačen' : 'Sugestija je uspješno obrađena : proizvod prihvaćen';
-            return redirect()->route('products', $product->name[0])->withSuccess($msg);
+            return redirect()->route('editProduct', $product->id)->withSuccess($msg);
       }
    }
 
@@ -57,11 +64,24 @@ class ProductController extends Controller
 
      Counter::incrementProductsViews();
 
+     $similarProducts = $product->itemsWithCommonTags();
+
+     $recommendedProductsCounter = Product::where('isRecommended', '1')->get()->count();
+     if($recommendedProductsCounter){
+       $products  = Product::where('isRecommended', '1')->inRandomOrder();
+       $recommendedProducts = $recommendedProductsCounter >= 4? $products->take(4)->get() : $products->take($recommendedProductsCounter)->get();
+     } else {
+       $recommendedProducts = collect([]);
+     }
+
      //da bih zapamtio iz koje je pretrage:
      if(isset($_GET['term'])) session(['term'=> $_GET['term']]) ;
      if(isset($_GET['manuf'])) session(['manuf'=> $_GET['manuf']]) ;
      $tags=$product->tags()->inRandomOrder()->get();
-     return view('guest.check.product', compact('product', 'tags'));
+
+
+     // $productsWithCommonTags = $product->itemsWithCommonTags();
+     return view('guest.check.product', compact('product', 'tags', 'similarProducts', 'recommendedProducts'));
    }
 
 
@@ -69,6 +89,8 @@ class ProductController extends Controller
      $product = Product::withTrashed()->find($id);
      $tags = "";
      $productProductGroups = $product->productGroups()->pluck('id')->toArray();
+     $productEditSuggestions = $product->productEditSuggestions()->paginate(10);
+
      foreach ($product->tags as $key=>$tag) {
        if ($key !== count($product->tags)-1){
          $tags .= $tag->name. ",";
@@ -76,7 +98,8 @@ class ProductController extends Controller
           $tags .= $tag->name;
        }
      }
-     return view('admin.createOrEdit', compact('product', 'tags', 'productProductGroups'));
+
+     return view('admin.createOrEdit', compact('product', 'tags', 'productProductGroups', 'productEditSuggestions'));
    }
 
 
@@ -84,7 +107,7 @@ class ProductController extends Controller
    public function update(UpdateProductRequest $request, Product $product)
    {
        $validated = $request->validated();
-       if (Product::updateProduct($product, $request)) return redirect()->route('home')->withSuccess('Proizvod'.$product->name.'je uspješno izmjenjen');
+       if (Product::updateProduct($product, $request)) return redirect()->route('editProduct', $product->id)->withSuccess('Proizvod '.$product->name.' je uspješno izmjenjen');
    }
 
 

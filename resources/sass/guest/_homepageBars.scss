@@ -1,9 +1,6 @@
 #bars{
   background-color: $c2;
   color: #fff;
-
-
-
 }
 
 #bars.fixedToTop{
@@ -108,4 +105,23 @@
   & *{
     z-index: 1;
   }
+}
+
+
+
+// =====stilizovanje placeholdera productBar-a i panufacturerBar-a=================
+input#productBar::-webkit-input-placeholder, input#manufacturerBar::-webkit-input-placeholder {
+  // color: orange;
+font-family: $fo2;
+}
+input#productBar::-webkit-input-placeholder, input#manufacturerBar::-webkit-input-placeholder {
+font-family: $fo2;
+}
+input#productBar::-webkit-input-placeholder, input#manufacturerBar::-webkit-input-placeholder {
+  // color: orange;
+font-family: $fo2;
+}
+input#productBar::-webkit-input-placeholder, input#manufacturerBar::-webkit-input-placeholder {
+  // color: orange;
+font-family: $fo2;
 }

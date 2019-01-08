@@ -1,0 +1,43 @@
+//na pocetnoj strani
+
+.homepageRecommended{
+  & .product{
+    background-color: rgba(#ffffff, 0) !important;
+    background-image: linear-gradient(to right, #545aaa, #fff);
+  }
+}
+
+//na STRANICI CHECK PRODUCT
+//
+.checkRecommendedHeader{
+  background-color: #545aaa !important;
+  margin-bottom: 3%;
+  // background-image: linear-gradient(to right, #545aaa, #fff);
+}
+.checkRecommended{
+
+  background-color: rgba(#ffffff, 0) !important;
+  background-image: linear-gradient(to right, #545aaa, #7b7eaa);
+
+  & .group{
+    &>.row{
+      background-color: #28A745 !important;
+    }
+  }
+
+}
+
+.checkRecommendedFooter{
+  background-color: #545aaa !important;
+
+}
+
+
+#vegelijeRecommend{
+  position: absolute;
+  font-size: 60%;
+  -ms-transform: rotate(-6deg); /* IE 9 */
+  -webkit-transform: rotate(-6deg); /* Safari 3-8 */
+   transform: rotate(-6deg);
+   font-family: $fo2 !important;
+}

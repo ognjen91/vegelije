@@ -15,10 +15,16 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
+}
+
+*:not(.fo2){
   font-family: $fo1;
 }
 
-
+.fo2{
+  font-family: $fo2;
+}
 
 @import 'mutual/animateCSS';
 @import 'mutual/mixins';
@@ -29,14 +35,19 @@
 @import 'mutual/footer';
 @import 'mutual/defaults';
 
-
+@import 'guest/defaults';
 @import 'guest/homepage';
 @import 'guest/checkProduct';
 @import 'guest/listing';
 @import 'guest/categories';
+@import 'guest/tagsPage';
 @import 'guest/manufacturers';
 @import 'guest/suggest';
 @import 'guest/listingGroups';
+@import 'guest/recommended';
+@import 'guest/ads';
+@import 'guest/slidingIn';
+@import 'guest/o_nama';
 
 
 @import 'admin/dashboard';
@@ -44,6 +55,10 @@
 @import 'admin/createOrEdit';
 @import 'admin/notificationInHeader';
 @import 'admin/listedNotifications';
+@import 'admin/adminBusiness';
+@import 'admin/images';
+@import 'admin/suggestionReview';
+@import 'admin/ads';
 
 
 #app{

@@ -14,7 +14,8 @@ class AdminProvider extends ServiceProvider
     public function boot()
     {
       view()->composer(['admin.*',
-                        'includes.header'], function($view){
+                        'includes.header',
+                        'includes.adminHeader'], function($view){
           $view->with('user', \Auth::user());
       });
 

@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-8 offset-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
       <div class="input-group mb-3">
-      <input @keyup.enter="go" type="text" class="form-control" placeholder="Unesite oznaku" aria-label="Unesite tag" aria-describedby="basic-addon2" v-model="input">
+      <input @keyup.enter="go" type="text" class="form-control" id="tagInput" placeholder="Unesite oznaku za pretragu" aria-label="Unesite tag" aria-describedby="basic-addon2" v-model="input">
       <div class="input-group-append">
-        <a :href="'/oznaka/'+input" class="btn btn-outline-secondary rounded c2Button" type="button">Pretrаga</a>
+        <a :href="'/oznaka/'+input" class="btn btn-outline-secondary  vegelijeButton" type="button">Pretrаga</a>
       </div>
     </div>
     </div>

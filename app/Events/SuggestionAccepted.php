@@ -18,10 +18,11 @@ class SuggestionAccepted
     public $suggestionId;
     public $isExactProduct;
     public $product;
-    public $image;
+    public $imagesAcceptedNames;
+    public $imagesRejectedNames;
     public $declarationImage;
-    public $imageAccepted;
     public $decalrationImageAccepted;
+    public $profileImage;
 
     /**
      * Create a new event instance.
@@ -33,12 +34,10 @@ class SuggestionAccepted
         $this->suggestionId = request('suggestionId');
         $this->product = $product;
         $this->isExactProduct = request('productOrProductGroup') == 'product';
-        $this->image = request('imageAcceptedName');
-        $this->isImageAccepted = request('imageAccepted');
-        if($this->isExactProduct){
-          $this->declarationImage = request('declarationImageAcceptedName');
-          $this->isDeclarationImageAccepted = request('declarationImageAccepted');
-        }
+        $this->imagesAcceptedNames = request('imagesAcceptedNames');
+        $this->imagesRejectedNames = request('imagesRejectedNames');
+        $this->profileImage = request('profileImage');
+
     }
 
     /**

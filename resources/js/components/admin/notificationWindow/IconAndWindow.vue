@@ -15,21 +15,21 @@
 
      <!-- ako ima neprocitanih, prvo neprocitane pa procitane -->
      <template v-if='noOfUnreadNotifications'>
-     <h5 class="fo1"><strong>Nove notifikacije</strong></h5>
+     <h5 class="text-center"><strong>Nove notifikacije</strong></h5>
      <slot name='unreadNotifications'></slot>
-     <h5 class="fo1" v-if="totalNoOfNotifications - noOfUnreadNotifications"><strong>Ostale notifikacije</strong></h5>
+     <h5 class="text-center" v-if="totalNoOfNotifications - noOfUnreadNotifications"><strong>Ostale notifikacije</strong></h5>
      <slot name="readNotifications"  v-if="totalNoOfNotifications - noOfUnreadNotifications"></slot>
      </template>
 
      <!-- ako nema neprocitanih, onda samo procitane (=sve) -->
      <template v-else>
-       <h5 class="fo1"><strong>Sve notifikacije</strong></h5>
+       <h5 class="text-center"><strong>Sve notifikacije</strong></h5>
         <slot name='readNotifications'></slot>
      </template>
    </template>
 
     <template v-else>
-      <h5 class="fo1">Nemate ni jednu notifikaciju.</h5>
+      <h5 class="text-center">Nemate ni jednu notifikaciju.</h5>
     </template>
 
 

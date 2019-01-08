@@ -1,6 +1,6 @@
 <div class="notification suggestionNotification" >
   <a href="/admin/suggestions/{{$notification->data['id']}}/edit">
-    <div><p>
+    <div><p class="text-light px-3">
        @if(!$notification->read_at)
 
        Nova neobrađen predlog korisnika koji niste pregledali:

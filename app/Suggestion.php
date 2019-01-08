@@ -23,6 +23,11 @@ class Suggestion extends Model
     return $this->hasOne(ProductGroup::class, 'fromSuggestion')->withTrashed();;
   }
 
+  public function images()
+   {
+       return $this->morphMany(Image::class, 'imageable');
+   }
+
     protected static function boot(){
       parent::boot();
       //ovdje je model upravo nova sugestija
@@ -41,24 +46,19 @@ class Suggestion extends Model
        $suggestion->description = request('description');
        $suggestion->legality= request('legality');
        $suggestion->tags= request('tags');
+       if (request('suggestedBy') !== null) $suggestion->suggestedBy = request('suggestedBy');
 
-       $image = self::storeImage($request, 'image'); //RAZMOTRI DIREKTORIJ!!!
-       if ($image) {
-           $suggestion->image =  $image;
-       }
 
-       $declarationImage = self::storeImage($request, 'declarationImage'); //RAZMOTRI DIREKTORIJ!!!
-       if ($declarationImage) {
-           $suggestion->declarationImage =  $declarationImage;
-       }
 
        if (!$suggestion->save()) {
            return false;
        }
-       // tagovi, posto su prosli valdiaciju, postoje, kao i legality
-       // ali dolaze u formatu  tag1,tag2,tag3,tag4... pa cu sada to ispraviti
 
-       return true;
+       if($request->hasFile('images')){
+         return self::storeMultipleImages($request, 'images', $suggestion);
+       } else {
+         return true;
+       }
 
     }
 }

@@ -44,9 +44,15 @@ class ProductGroup extends Model
        return $this->morphToMany(Tag::class, 'taggable');
    }
 
-   // public function legalities(){
-   //   return $this->morphToMany(Legality::class, 'legalable');
-   // }
+   public function productGroupEditSuggestions()
+   {
+       return $this->hasMany(ProductGroupEditSuggestion::class);
+   }
+
+   public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 
    public static function store(StoreProductGroupRequest $request){
       $product = new self;
@@ -54,22 +60,25 @@ class ProductGroup extends Model
       $product->category_id = request('category_id');
       $product->description = request('description');
       $product->user_id = \Auth::user()->id;
+      if (request('suggestedBy') !== null) $product->suggestedBy = request('suggestedBy');
 
-
-      $image = self::storeImage($request, 'image');
-      if ($image) {
-          $product->image =  $image;
-      }
 
       if (!$product->save()) {
           return false;
+      }
+
+
+      //snimam sliku i dodjeljujem je za profilnu modelu
+      $image = self::storeImage($request, 'image', $product);
+      if ($image) {
+          $product->image =  $image;
+          $product->save();
       }
 
       // tagovi, posto su prosli valdiaciju, postoje, kao i legality
       // ali dolaze u formatu  tag1,tag2,tag3,tag4... pa cu sada to ispraviti:
       $tags = explode(",", request('tags'));
       Tag::attachMultipleToModel($tags, $product);
-      // Legality::syncLegality(intval(request('legality')), $product);
 
       return $product;
 

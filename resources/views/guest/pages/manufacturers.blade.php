@@ -15,12 +15,13 @@
   <div class="col-8 mb-5 px-2 manufPageContent rounded">
     <div class="row">
 
-      <div class="col-12 mb-2">
-        <h2 class="text-center c1 w-100">Vegelije: <span class="c2">proizvođači</span></h2>
+      <div class="col-12 mb-2 mb-md-3">
+        <h1 class="text-center c1 w-100"><span class="fo2">Vegelije:</span> <span class="c2 h4">pretraga proizvođača</span></h1>
+        <h5 class="text-center c1 w-100 spaced2"><small>pronađite svog omiljenog proizvođača</small></h5>
       </div>
 
 
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2 mb-md-3">
         <manufacturers-search></manufacturers-search>
       </div>
 
@@ -48,10 +49,14 @@
 
 @endsection
 <style>
+  .content{
+    min-height: 100vh;
+  }
   @media screen and (max-width: 768px){
 
   .content{
     display: block;
+
   }
   footer{
     display : none !important;

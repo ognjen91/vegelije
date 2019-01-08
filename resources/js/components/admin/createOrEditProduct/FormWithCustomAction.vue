@@ -13,6 +13,11 @@
     </div>
 
 
+
+      <slot  name="category"></slot>
+
+
+
     <div  v-if='formParams.isExactProduct'>
       <slot  name="isVege"></slot>
     </div>
@@ -31,10 +36,15 @@
 
     <slot name='tags'></slot>
 
+    <div v-if='formParams.isExactProduct'>
+    <slot name='additional_content'></slot>
+    </div>
+
+
 
     <input type="submit" value="Prihvati" class='btn btn-primary btn-lg btn-block my-5'>
 
-    <slot name='additional_content'></slot>
+
 
 
 

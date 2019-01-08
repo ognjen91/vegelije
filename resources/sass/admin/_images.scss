@@ -1,0 +1,7 @@
+.imageableImage{
+  @include flexCenterImg(90%);
+
+  @media screen and (min-width: $md){
+    @include flexCenterImg(65%);
+  }
+}

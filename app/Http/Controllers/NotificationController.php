@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class NotificationController extends Controller
 {
+
+  public function __construct()
+{
+        $this->middleware('auth');
+}
+
     public function index($type = null){
       if(!$type){
         $notifications = \Auth::user()->notifications()->paginate(15);
@@ -17,7 +23,7 @@ class NotificationController extends Controller
       $noOfSeen = count(\Auth::user()->readNotifications);
 
 
-      return view('admin.listedNotifications', compact('notifications', 'noTotal', 'noOfSeen', 'noOfUnseen'));
+      return view('admin.listed.notifications', compact('notifications', 'noTotal', 'noOfSeen', 'noOfUnseen'));
     }
 
     // public function edit(\Illuminate\Notifications\Notification $notification){

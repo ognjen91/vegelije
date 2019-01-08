@@ -20,7 +20,8 @@
 .allNotifications{
   position: absolute;
   z-index: 9;
-  background-color: #fff;
+  background-color: $c205;
+  color: #fff;
 
   & ul{
     list-style: none;
@@ -32,7 +33,7 @@
 }
 
 .unreadNotifications{
-  background-color: $c407;
+  background-color: rgb(230, 55, 66);
 
   & .notification{
     & p{
@@ -42,10 +43,10 @@
 }
 
 .readNotifications{
-  background-color: rgba(188, 219, 209, 0.82);
+  background-color: $c1;
   & .notification{
     & p{
-      color: black;
+      color: #fff;
     }
   }
 

@@ -14,7 +14,7 @@
 
 
     <h3 class="py-2 mb-3 mt-lg-4 mb-lg-5 text-center spaced c1 w-100">
-      <strong>Tačni rezultati</strong>
+      <strong class='fo2'>Tačni rezultati</strong>
     </h3>
     <template v-if="results.exact.length">
       <div class="col-12">
@@ -33,7 +33,7 @@
 
 
     <h3 class="py-2 mb-3 mt-lg-4 mb-lg-5 text-center spaced c1 w-100"  v-if="results.other.length">
-      <strong>Ostali rezultati</strong>
+      <strong class='fo2'>Ostali rezultati</strong>
     </h3>
     <template v-if="results.other.length">
       <div class="col-12">
@@ -49,15 +49,16 @@
 
   </div>
 
+
   <!-- AKO NEMA REZULTATA.... -->
-  <div class="col-12 w-100"  id="searchResults" v-else>
-    <!-- <div class="col-12"> -->
+  <div class="row mb-4 pl-lg-5"  id="searchResults" v-else>
+  <div class="col-12"  id="searchResults" >
+
       <h2 class="colorDanger w-100 pt-3 mb-5 my-5 text-center">Nema pronađenih rezultata za traženi pojam</h2>
       <h2 class='col-12 text-center c2 goBack' @click="closeResults"><i class="fas fa-arrow-circle-left"></i> Nazad</h2>
-    <!-- </div> -->
 
   </div>
-
+  </div>
   </template>
 
 <script>

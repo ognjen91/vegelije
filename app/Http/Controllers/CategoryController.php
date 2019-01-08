@@ -12,6 +12,7 @@ class CategoryController extends Controller{
     $cats = Category::all();
     foreach ($cats as $category) {
       $categories[$category->name]['NoOfProducts'] = count($category->products);
+      // dd($category->productGroups);
       $categories[$category->name]['NoOfProductGroups'] = count($category->productGroups);
     }
     // $categories = Category::get();

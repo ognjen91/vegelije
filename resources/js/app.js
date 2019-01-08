@@ -20,6 +20,10 @@ Vue.component('listingTopProductsAndProductGroups', require('./components/guest/
 Vue.component('tagInput', require('./components/guest/tagInput.vue'));
 Vue.component('manufacturersSearch', require('./components/guest/ManufacturersPageSearchBar.vue'));
 Vue.component('manufacturersResults', require('./components/guest/ManufacturersPageResults.vue'));
+Vue.component('beMentioned', require('./components/guest/DoesWantToBeMentioned.vue'));
+Vue.component('marketMainTop', require('./components/guest/marketing/MainTop.vue'));
+Vue.component('marketSide', require('./components/guest/marketing/Side.vue'));
+Vue.component('slideInView', require('./components/guest/slidingInView.vue'));
 
 Vue.component('productOrProductGroup', require('./components/admin/createOrEditProduct/ProductOrProductGroup.vue'));
 Vue.component('productFormWithCustomAction', require('./components/admin/createOrEditProduct/FormWithCustomAction.vue'));
@@ -32,6 +36,8 @@ Vue.component('iconWarningAndAction', require('./components/admin/reusable/IconW
 Vue.component('buttonWarningAndAction', require('./components/admin/reusable/ButtonWarningAndAction.vue'));
 Vue.component('iconWithHiddenForm', require('./components/admin/reusable/IconWithHiddenForm.vue'));
 Vue.component('zoomableImage', require('./components/admin/reusable/ImageZoomable.vue'));
+Vue.component('multipleInputFiles', require('./components/admin/reusable/multipleInputFiles.vue'));
+
 
 
 Vue.component('suggestionFormWithCustomAction', require('./components/admin/suggestionReview/FormWithCustomAction.vue'));

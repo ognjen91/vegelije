@@ -1,3 +1,22 @@
+.logoHolder{
+  @include flexCenterImg(50%);
+}
+
+.loggedUser{
+  & .avatar{
+    @include flexCenterImg(110%);
+    @media screen and (min-width: $sm){
+      @include flexCenterImg(65%);
+    }
+    @media screen and (min-width: $md){
+      @include flexCenterImg(55%);;
+    }
+    @media screen and (min-width: $lg){
+      @include flexCenterImg();;
+    }
+  }
+}
+
 .suggestionTags{
   &>div{
     position: relative;

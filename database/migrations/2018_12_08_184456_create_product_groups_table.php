@@ -16,11 +16,12 @@ class CreateProductGroupsTable extends Migration
         Schema::create('product_groups', function (Blueprint $table) {
           $table->increments('id');
           $table->string('name');
-          $table->text('description')->nullable();
           $table->unsignedInteger('category_id');
+          $table->text('description')->nullable();
           $table->string('image')->default('placeholder.png');
           $table->unsignedInteger('fromSuggestion')->default('0');
           $table->unsignedInteger('user_id');
+          $table->string('suggestedBy')->nullable();
           $table->unsignedInteger('viewsCount')->default('0');
           $table->timestamps();
           $table->softDeletes();

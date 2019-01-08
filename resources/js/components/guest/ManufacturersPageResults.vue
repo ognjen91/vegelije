@@ -4,7 +4,7 @@
       <div class="col-12 searchResultsOf">
         <ul class="row resultsOf">
           <manufacturer  v-for="(manufacturer, index) in manufacturers" :key='index'
-          :manufacturer-name="manufacturer.name" :id="manufacturer.id" class="col-12 mb-3 manufacturerResult" :noOfProducts="manufacturer.products.length">
+          :manufacturer="manufacturer" :id="manufacturer.id" class="col-12 mb-3 manufacturerResult" :noOfProducts="manufacturer.products.length">
           </manufacturer>
         </ul>
       </div>
@@ -13,7 +13,7 @@
     <div class="col-12 searchResultsOf" v-if='suggestionsExist && !firstInput' id='manufacturersResults'>
       <ul class="row resultsOf">
         <manufacturer  v-for="(manufacturer, index) in results" :key='index'
-        :manufacturer-name="manufacturer.name" :id="manufacturer.id" class="col-12 mb-3 manufacturerResult" :noOfProducts="manufacturer.products.length">
+        :manufacturer="manufacturer" :id="manufacturer.id" class="col-12 mb-3 manufacturerResult" :noOfProducts="manufacturer.products.length">
         </manufacturer>
       </ul>
     </div>

@@ -9,6 +9,10 @@ use App\Events\SuggestionAccepted;
 
 class ManufacturerController extends Controller
 {
+  public function __construct()
+{
+        $this->middleware('auth', ['except' => ['index', 'view']]);
+}
 
    public function index($letter = 'A'){
      if (\Auth::check()) {
@@ -28,6 +32,7 @@ class ManufacturerController extends Controller
    }else{
      return view('guest.pages.manufacturers');
    }
+
    }
 
    public function create(){
@@ -53,9 +58,10 @@ class ManufacturerController extends Controller
      return view('admin.listed.products', compact('manufacturer', 'products', 'letter'));
 
    } else {
+
      $products = $manufacturer->products()->orderBy('name', 'asc')->with('manufacturer', 'category')->get();
-     $manufacturerName = $manufacturer->name;
-     return view('guest.listingProducts.byManufacturer', compact('manufacturerName', 'products'));
+
+     return view('guest.listingProducts.byManufacturer', compact('manufacturer', 'products'));
    }
 
    }
@@ -74,8 +80,9 @@ class ManufacturerController extends Controller
 
        $this->validate($request, $rules, $messages);
 
-       $manufacturer = Manufacturer::create([ 'name' =>$request->name ]);
-       return redirect()->route('manufacturers', $manufacturer->name[0])->withSuccess('Proizvođač je uspješno ubačen');
+       $manufacturer = Manufacturer::store($request);
+       return redirect()->route('manufacturers', $manufacturer->name[0])->withSuccess('Proizvođač '.$manufacturer->name. ' uspješno kreiran.');
+
    }
 
 
@@ -97,7 +104,7 @@ class ManufacturerController extends Controller
 
 
      $rules = [
-       'name' => 'required|unique:manufacturers'
+       // 'name' => 'required|unique:manufacturers'
      ];
 
      $messages = [
@@ -106,11 +113,7 @@ class ManufacturerController extends Controller
      ];
 
        $this->validate($request, $rules, $messages);
-       $manufacturer->name = $request->name;
-
-       $manufacturer->save();
-       // dd('prošlo validaciju');
-       return redirect()->back()->withSuccess('Proizvođač uspješno izmjenjen.');
+       if (Manufacturer::updateManufacturer($manufacturer, $request)) return redirect()->back()->withSuccess('Proizvođač'.$manufacturer->name.'je uspješno izmjenjen');
 
        }
 

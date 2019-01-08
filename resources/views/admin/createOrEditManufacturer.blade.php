@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
-<form  class="w-100 my-4" action="@edit {{route('updateManufacturer', $manufacturer->id)}} @else {{route('storeManufacturer')}}@endedit" method="post">
+<form  class="col-10 offset-1 col-md-8 offset-md-2 my-4" action="@edit{{route('updateManufacturer', $manufacturer->id)}}@else{{route('storeManufacturer')}}@endedit" method="post" enctype="multipart/form-data">
 @csrf
 @edit {{method_field('PATCH')}} @endedit
 
@@ -15,12 +16,28 @@
 <template slot='inputTitle'><strong>Naziv proizvođača</strong></template>
 </custom-input>
 
-  <input type="submit" value='Prihvati' class='btn btn-success btn-lg btn-block'>
+<div class="mb-2">
+<h4 class="mb-2"><strong>Opisni tekst</strong></h4>
+<textarea name="description" class="form-control productDescription w-100 mb-2">
+      @errors
+      {{old('description')}}
+      @else
+      @edit {{$manufacturer->description}} @endedit
+      @enderrors
+    </textarea>
+    @include('admin.createOrEdit.editorSettings')
+</div>
+
+{{-- slika proizvođača --}}
+<div slot="image" class="my-4">
+  @include('admin.createOrEdit.images.manufacturerImage')
+</div>
+
+  <input type="submit" value='Prihvati' class='btn btn-success btn-lg btn-block mb-5'>
 
 </form>
 
 @edit
-
 <div class="col-12 my-4">
       @if(!$manufacturer->deleted_at)
         <button-warning-and-action :url="'{{route('deleteManufacturer', $manufacturer->id)}}'" :target-item-name="'{{$manufacturer->name}}'" :button='"btn btn-danger btn-lg btn-block"' :method="'delete'">

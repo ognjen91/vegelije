@@ -10,6 +10,9 @@ za unesni token, url i ime elementa za brisanje, izbacuje popup za potvrdu -->
     <input type="hidden" name="_token" :value='token'>
     <input type="hidden" name="_method" value="DELETE" v-if="method=='delete'">
     <input type="hidden" name="_method" value="PATCH" v-if="method=='patch'">
+
+    <!-- ideja je da u ovaj sljedeci slot idu dodatni podaci, npr kod brisanja slike -->
+    <div slot="additionalInputField"></div>
   </form>
 
 

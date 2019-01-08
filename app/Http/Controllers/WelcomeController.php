@@ -9,20 +9,23 @@ use App\Counter;
 use App\Tag;
 use App\Category;
 use App\Manufacturer;
+use App\MainAd;
 
 class WelcomeController extends Controller
 {
     public function index(){
 
          $lastProducts = Product::orderBy('created_at', 'desc')->get()->take(6);
-
          $lastProductGroups = ProductGroup::orderBy('created_at', 'desc')->get()->take(2);
+         $lastProducts = $lastProducts->merge($lastProductGroups);
 
+          $randomProducts =  Product::get()->random(4);
+          $recommendedProductsCounter = Product::where('isRecommended', '1')->get()->count();
+          if($recommendedProductsCounter){
+            $products  = Product::where('isRecommended', '1')->inRandomOrder();
+            $recommendedProducts = $recommendedProductsCounter >= 4? $products->take(4)->get() : ($recommendedProductsCounter == 3? $products->take(2)->get() : $products->get());
+          }
 
-         $randomProducts =  Product::get()->random(4);
-
-
-          $lastProducts = $lastProducts->merge($lastProductGroups);
 
           //ove podatke primam iz sesije koju sam setovao (ako je prethodno vrsena pretraga)  u ProductController@view
           $oldTerm = session('term');
@@ -33,7 +36,7 @@ class WelcomeController extends Controller
           // dd(session()->all());
           // dd($oldTerm);
 
-          return view('welcome', compact('lastProducts', 'randomProducts', 'oldTerm', 'oldManuf'));
+          return view('welcome', compact('lastProducts', 'randomProducts', 'oldTerm', 'oldManuf', 'recommendedProducts', 'mainAd'));
     }
 
 

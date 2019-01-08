@@ -1,0 +1,12 @@
+.socials{
+
+
+  & a{
+    @include flexCenterImg(60%);
+
+    @media screen and (min-width: $md){
+      @include flexCenterImg(50%);
+
+    }
+  }
+}

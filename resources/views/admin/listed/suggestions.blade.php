@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('adminTitle', 'Predlozi korsnika')
 
 @section('content')
@@ -12,7 +12,7 @@
   </div>
 
 
-  @if(!empty($products))
+  @if($products->count())
   <div class="col-12 col-md-8 offset-md-2">
 
 <table class="listingTable w-100">
@@ -48,12 +48,14 @@
 
 </div>
 
-<div class="col-12 my-4 pagination">
+<div class="col-10 offset-1 col-md-8 offset-md-2 my-4 pagination">
 {{$products->links()}}
 </div>
 
 @else
+<div class="col-10 offset-1 col-md-8 offset-md-2 mb-5">
   <h2>Nema ni jednog predloženog proizvoda. <a href="{{route('newProduct')}}">Ubacite novi proizvod</a>
+</div>
 @endif
 
 

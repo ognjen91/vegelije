@@ -4,9 +4,9 @@
 
 @section('content')
 
-<div class="col-12">
+<div class="@if($secondAd) col-12 col-md-9 @else col-12 @endif">
 
-<h1 class="c1 text-center mb-4">Kategorija {{$categoryName}}</h1>
+<h2 class="c1 text-center mb-4 underlined"><span class="fo2 h1">Vegelije</span>: kategorija <span class="text-lowercase">{{$categoryName}}</span></h2>
 
 
   <listing-products-and-product-groups :products="{{$products}}" :product-groups="{{$productGroups}}"></listing-products-and-product-groups>
@@ -15,7 +15,11 @@
 </div>
 
 
-
+@if($secondAd && ($products->count() || $productGroups->count()))
+<div class="col-12 col-md-3 second">
+@include('includes.ads.SecondAd')
+</div>
+@endif
 
 
 

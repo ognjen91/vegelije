@@ -13,6 +13,13 @@ use App\Counter;
 
 class ProductGroupController extends Controller
 {
+
+  public function __construct()
+{
+        $this->middleware('auth', ['only' => ['store', 'edit', 'update', 'destroy', 'indexTrash', 'restore']]);
+        // $this->middleware('subscribed', ['except' => ['fooAction', 'barAction']]);
+}
+
   public function index($letter = 'A'){
     if (\Auth::check()) {
       $products = ProductGroup::where('name', 'LIKE', $letter.'%');
@@ -65,6 +72,8 @@ class ProductGroupController extends Controller
 
     Counter::incrementProductGroupsViews();
 
+
+
     $productGroupsProducts = $product->products()->orderBy('name', 'asc')->with('manufacturer', 'category')->get();
     //da bih zapamtio iz koje je pretrage:
     if(isset($_GET['term'])) session(['term'=> $_GET['term']]) ;
@@ -105,7 +114,9 @@ class ProductGroupController extends Controller
          $tags .= $tag->name;
       }
     }
-    return view('admin.createOrEdit', compact('product', 'tags'));
+
+    $productGroupEditSuggestions = $product->productGroupEditSuggestions()->paginate(10);
+    return view('admin.createOrEdit', compact('product', 'tags', "productGroupEditSuggestions"));
   }
 
   public function update(UpdateProductGroupRequest $request, ProductGroup $product)

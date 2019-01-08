@@ -20,6 +20,7 @@
         "vue": "^2.5.17"
     },
     "dependencies": {
+        "in-viewport": "^3.6.0",
         "iview": "^3.1.5",
         "similarity": "^1.1.1",
         "string-similarity": "^3.0.0",

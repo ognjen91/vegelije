@@ -30,16 +30,12 @@ class ProceedRejectedSuggestion
     {
         // treba soft delete Suggestion-a i da se skloni notifikacija...
         Suggestion::find($event->suggestionId)->delete();
+        \DB::table('notifications')->where('type', 'App\Notifications\NewSuggestionCreated')
+                                    ->where('data', 'LIKE', '%"id":'.$event->suggestionId.'%')
+                                    ->whereNull('read_at')                                 // ->get();
+                                    ->update(
+                                      ['read_at' => date("Y-m-d H:i:s")]
+                                    );
 
-        //skidanje iz notifikacija ostalih usera
-        foreach (User::all() as $user) {
-          if($user->hasAnyRole(['Admin', 'Moderator'])){
-           foreach ($user->notifications as $notification) {
-             if($notification->type == 'App\Notifications\NewSuggestionCreated'){
-                 if($notification->data['id'] == $event->suggestionId) $notification->markAsRead();
-             }
-           }
-         }
-        }
     }
 }

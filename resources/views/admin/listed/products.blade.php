@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('adminTitle')
   @if(\Route::currentRouteName() == 'products')
   Konkretni proizvodi :
@@ -20,7 +20,7 @@
 @include('includes.productsOrProductGroupsLinks')
 
 
-<div class="col-12 alphabet mt-2 mb-4">
+<div class="col-10 offset-1 col-md-8 offset-md-2 alphabet mt-2 mb-4">
   @include('includes.alphabet')
 </div>
 
@@ -67,13 +67,14 @@
 
 </div>
 
-<div class="col-12 my-4 pagination">
+<div class="col-10 offset-1 col-md-8 offset-md-2 my-4 pagination">
 {{$products->links()}}
 </div>
 
 @else
-  <h2 class='text-center my-3'>Niste @trashed obrisali @else dodali @endtrashed ni jedan od ovih proizvoda čiji naziv počinje na  '{{$letter}}'</h2>
+<div class="col-10 offset-1 col-md-8 offset-md-2 mb-5">
+  <h2 class='text-center text-danger my-3 w-100'>Niste @trashed obrisali @else dodali @endtrashed ni jedan od ovih proizvoda čiji naziv počinje na  '{{$letter}}'</h2>
+</div>
 @endif
-
 
 @endsection

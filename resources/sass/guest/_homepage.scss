@@ -13,10 +13,11 @@ html,body{
 }
 
 .appTitle{
+  // border: $redb;
   font-weight: 600;
   // display: inline;
   @media screen and (min-width: $lg){
-    font-size: 1.5;
+    font-size: 3.2em;
   }
 }
 
@@ -25,7 +26,10 @@ html,body{
   -ms-transform: rotate(30deg); /* IE 9 */
  -webkit-transform: rotate(30deg); /* Safari 3-8 */
  transform: rotate(30deg);
- font-size: 2.2;
+ font-size: 1.2em;
+ @media screen and (min-width: $lg){
+   font-size: 1.2em;
+ }
  // margin-left: 1%;
 }
 

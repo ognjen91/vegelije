@@ -1,0 +1,10 @@
+.imgToDel{
+  @include flexCenterImg(50%);
+  @media screen and (min-width: $md){
+      @include flexCenterImg(35%);
+  }
+}
+
+.imageOnPage{
+  border-bottom: 1px solid $c2;
+}

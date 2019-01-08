@@ -23,7 +23,10 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\SuggestionRejected'=>[
           'App\Listeners\ProceedRejectedSuggestion', //treba je izbrisati [soft delete] + izbrisati notif
-        ]
+        ],
+        'App\Events\ImagesSuggestionProceeded'=>[
+          'App\Listeners\ProceedImagesSuggestion', //treba je izbrisati [soft delete] + izbrisati notif
+        ],
     ];
 
     /**

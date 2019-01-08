@@ -7,7 +7,7 @@
 <div class="col-12">
   <div class="row">
     <div class="col-12 mb-3 mb-md-5">
-      <h1 class="text-center c1">Vegelije: <span class="c2">Oznake</span></h1>
+      <h2 class="text-center c2 underlined"><span class="c1 fo2 h1">Vegelije:</span> oznake</h2>
     </div>
   </div>
 
@@ -26,7 +26,11 @@
 
 
 
-
+@if($secondAd)
+<div class="col-10 offset-1 col-md-8 offset-md-2 my-5">
+  @include('includes.ads.SecondAdDown')
+</div>
+@endif
 
 
 

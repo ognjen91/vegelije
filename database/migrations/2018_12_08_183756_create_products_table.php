@@ -20,10 +20,11 @@ class CreateProductsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('manufacturer_id');
             $table->string('image')->default('placeholder.png');
-            $table->string('declarationImage')->nullable();
             $table->unsignedInteger('fromSuggestion')->default('0');
             $table->unsignedInteger('user_id');
+            $table->string('suggestedBy')->nullable();
             $table->unsignedInteger('viewsCount')->default('0');
+            $table->unsignedInteger('isRecommended')->default('0');
             $table->timestamps();
             $table->softDeletes();
         });

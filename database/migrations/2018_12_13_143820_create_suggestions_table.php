@@ -19,10 +19,9 @@ class CreateSuggestionsTable extends Migration
           $table->string('manufacturer')->nullable();
           $table->unsignedInteger('legality'); //ovdje ide samo broj jer se svejedno pretvara kad se pravi proizvod
           $table->text('description')->nullable();
-          $table->string('image')->nullable();
-          $table->string('declarationImage')->nullable();
           $table->string('tags')->nullable(); //takodje neobradjeni, tj forma implodovanog array-a, separator je ","
           $table->integer('accepted')->default('0');
+          $table->string('suggestedBy')->nullable();
           $table->timestamps();
           $table->softDeletes();
         });

@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="row">
 
-    <div class="col-12 selectListing d-flex mb-2 mb-md-3">
+    <div class="col-12 selectListing d-flex mb-2 mb-md-3" id='listing'>
       <p @click='activeComponent = "listingProducts"' :class="{'selectedListing' : activeComponent === 'listingProducts'}">Konkretni proizvodi</p>
       <p v-if="typeof productGroups !== 'undefined'" @click='activeComponent = "listingProductGroups"' :class="{'selectedListing' : activeComponent === 'listingProductGroups' }">Grupe proizvoda</p>
     </div>

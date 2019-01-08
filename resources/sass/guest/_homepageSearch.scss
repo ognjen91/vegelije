@@ -7,6 +7,8 @@
 
 .product{
   position: relative;
+  display: flex;
+  align-items: center;
   margin-bottom: 5%;
   min-height: 150px;
   // background-color: $c202;
@@ -15,9 +17,13 @@
   //     white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
   //     white-space: pre-wrap;      /* current browsers */
 
-  &>div{
-    // height: 100%;
+  & div.productQuickInfo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
+
 
   display: flex;
   align-items: center;
@@ -52,12 +58,15 @@
 
 
 .productImage{
-
+  max-height: 200px; //responsivity...
+  overflow: hidden;
   @include flexCenterImg();
 
   @media screen and (min-width: $sm){
     @include flexCenterImg();
   }
+
+
 }
 
 .productTag{
