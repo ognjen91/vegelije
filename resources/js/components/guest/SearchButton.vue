@@ -46,8 +46,9 @@ export default {
     watch : {
       searchResultsShown(val){
         if(val){
+          $("#searchResults").css('min-height', '90vh');
           $(".initial").hide();
-          $("#results").fadeIn();
+          $("#searchResults").fadeIn(200, ()=>$("#searchResults").css('min-height', 'initial'));
           $("#randomTags").addClass('tagsOnSearch');
         }
       }

@@ -79,8 +79,9 @@ class ImageSuggestionController extends Controller
       // dd($request->all());
 
       $suggestion = ImageSuggestion::find($id);
-      $productId = $suggestion->product->id;
       if(!$suggestion) return redirect()->route('welcome')->withSuccess('Zahtev je u međuvremenu obrađen');
+      $productId = $suggestion->product->id;
+
 
       // dd($suggestion->product);
       event(new ImagesSuggestionProceeded($suggestion, $request->imagesAcceptedNames, $request->imagesRejectedNames, $request->profileImage));

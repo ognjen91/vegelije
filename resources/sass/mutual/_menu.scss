@@ -1,3 +1,8 @@
+.currentRoute{
+  color: $c5;
+  font-weight: 900;
+}
+
 .mainMenu {
     width: 100vw;
     height: 100vh;
@@ -31,7 +36,7 @@
      margin:  1% 0;
    }
 
-   & a {
+   & a:not(.currentRoute) {
      color: $c0;
      font-weight: 700;
    }

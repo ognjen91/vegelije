@@ -1,28 +1,34 @@
 @extends('layouts.app')
 @section('pageTitle', 'Oznake')
-
+@section('pageDescription')
+Vegelije oznake (tagovi): najsveobuhvatnije pretraga veganskih i vegetarijanskih proizvoda na Balkanu. Pretraga vege proizvoda po tagovima (oznakama).
+@endsection
+@section('keywords') oznaka oznake tagovi @foreach ($tags as $tag) {{$tag}} @endforeach vegan vegansko vegetarijansko cruelty-free gluten-free  @endsection
+  @section('socialUrl', '/oznake')
+  @section('socialTitle', 'Vegelije: pretraga po oznakama')
+  @section('ogType', 'article')
 
 @section('content')
 
-<div class="col-12">
-  <div class="row">
+<main class="col-12">
+  <section class="row">
     <div class="col-12 mb-3 mb-md-5">
       <h2 class="text-center c2 underlined"><span class="c1 fo2 h1">Vegelije:</span> oznake</h2>
     </div>
-  </div>
+  </section>
 
 <tag-input></tag-input>
 
-<div class="row my-4 px-3 px-md-5">
+<section class="row my-4 px-3 px-md-5">
   @foreach ($tags as $tag)
     <a class="btn btn-primary c1Button rounded mx-2 my-2 " href="{{route('taggedProducts', $tag)}}">{{$tag}}</a>
   @endforeach
-</div>
+</section>
 
 
 
 
-</div>
+</main>
 
 
 

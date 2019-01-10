@@ -10,7 +10,7 @@
       <div class="col-6 col-md-3">
         <h6 class="text-center c1 spaced"><strong>{{$recommendedProduct->name}}</strong></h6>
         <p class="text-center c4">{{$recommendedProduct->manufacturer->name}}</p>
-        <a href="" class="btn btn-primary btn-block  vegelijeButton2">
+        <a href="{{route('checkProduct', $recommendedProduct->id)}}" class="btn btn-primary btn-block  vegelijeButton2">
           Pogledaj
         </a>
       </div>

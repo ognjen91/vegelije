@@ -14,6 +14,23 @@ class SecondAdController extends Controller
     }
 
     public function store(Request $request){
+      $rules = [
+            'name'=>'required|min:2',
+            'intervalInSeconds'=>'required|integer',
+            'sideImage'=> 'max:4000|mimes:jpg,jpeg,png',
+            'downImage'=> 'max:4000|mimes:jpg,jpeg,png'
+        ];
+
+      $messages = [
+            'name.required' => 'Naziv reklame je neophodno uneti',
+            'name.required' => 'Molimo unesite trajanje popup-a!',
+            'sideImage.uploaded' => 'Max veličina sidebar slike je 3,5MB',
+            'sideImage.mimes' => 'Neodgovarajući format slike za sidebar. Dozvoljeni formati su: jpg, jpeg, png',
+            'downImage.uploaded' => 'Max veličina donje slike je 3,5MB',
+            'downImage.mimes' => 'Neodgovarajući format slike. Dozvoljeni formati su: jpg, jpeg, png'
+      ];
+
+        $this->validate($request, $rules, $messages);
 
       if(SecondAd::store($request)){
         return redirect()->route('ads')->withSuccess('Reklama ubacena');

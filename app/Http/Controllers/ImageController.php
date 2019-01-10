@@ -15,21 +15,22 @@ class ImageController extends Controller
 
   use ImageWizzard;
 
-  private static $imageables = ['Product', 'ProductGroup', 'Manufacturer', 'MainAd', 'SecondAd'];
-  private static $maxNoOfImages = ['Product'=>4, 'ProductGroup'=>4, 'Manufacturer'=>2, 'MainAd'=>4, 'SecondAd'=>4];
+  private static $imageables = ['Product', 'ProductGroup', 'Manufacturer', 'MainAd', 'SecondAd', 'Suggestion', 'ImageSuggestion'];
+  private static $maxNoOfImages = ['Product'=>4, 'ProductGroup'=>4, 'Manufacturer'=>2, 'MainAd'=>4, 'SecondAd'=>4, 'Suggestion'=>2, 'ImageSuggestion'=>4];
   private static $serbianNameOfType = ['Product'=>'Proizvod', 'ProductGroup'=>'Grupa proizvoda',
-                                      'Manufacturer'=>'Proizvođač','MainAd'=>'Glavna reklama', 'SecondAd'=>'Druga reklama'];
+                                      'Manufacturer'=>'Proizvođač','MainAd'=>'Glavna reklama', 'SecondAd'=>'Druga reklama',
+                                      'Suggestion'=>'Predlog', 'ImageSuggestion'=>'Predlog slika'];
 
 
 
     public function __construct(){
-    $this->middleware('auth', ['except' => ['store']]);
+    // $this->middleware('auth', ['except' => ['store']]);
     }
 
     public function edit(string $imageable_type, $id){
         if(!in_array($imageable_type, self::$imageables)) return redirect()->route('home')->withError('Pogrešna ruta');
         $className = 'App\\'.$imageable_type;
-        $imageableObject = $className::find($id);
+        $imageableObject = $className::withTrashed()->find($id);
 
         $maxNoOfImages = self::$maxNoOfImages[$imageable_type];
         $serbianNameOfType = self::$serbianNameOfType[$imageable_type];
@@ -40,8 +41,21 @@ class ImageController extends Controller
 
 
     public function store(Request $request){
+
+      $rules = [
+            'images.*'=> 'max:4000|mimes:jpg,jpeg,png'
+        ];
+
+      $messages = [
+            'images.*.uploaded' => 'Jedna od slika je prevelika: maksimalna dozvoljena veličina slike iznosi 3,5MB. Molimo, pokušajte ponovo',
+            'images.*.mimes' => 'Neodgovarajući format slike. Dozvoljeni formati su: jpg, jpeg, png'
+      ];
+
+        $this->validate($request, $rules, $messages);
+
+
       $className = 'App\\'.$request->imageable_type;
-      $imageableObject = $className::find($request->id);
+      $imageableObject = $className::withTrashed()->find($request->id);
       if(!$imageableObject) return redirect()->route('home')->withError('Greška pri uploadu slika: objekat nije pronađen');
       if($request->hasFile('images')){
           $stored =  self::storeMultipleImages($request, 'images', $imageableObject);

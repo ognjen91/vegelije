@@ -24,7 +24,7 @@ class UpdateProductGroupRequest extends FormRequest
     public function rules()
     {
       return [
-          'name' => 'required',
+          'name' => 'required|unique:product_groups,name,'.$this->product->id,
           'tags' => 'min:2' //to je realan minimum, cisto da eliminisem prazan string
       ];
     }

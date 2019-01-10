@@ -22,6 +22,13 @@
 <input type="submit" class="btn btn-primary btn-block btn-lg vegelijeButton" value="Obradi predlog">
 </form>
 
+@admin
+  <div slot=additional class='col-10 offset-1 my-5'>
+    <a href="{{route('editImages', ['ImageSuggestion', $suggestion->id])}}" class="btn btn-primary btn-block btn-lg">
+      Menadžer slika za ovaj prijedlog
+    </a>
+</div>
+@endadmin
 
 
 @endsection

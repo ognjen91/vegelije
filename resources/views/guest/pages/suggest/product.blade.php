@@ -1,13 +1,19 @@
 @extends('layouts.app')
 @section('pageTitle', 'Predložite proizvod')
-
+@section('pageDescription')
+Najsveobuhvatnije pretraga veganskih i vegetarijanskih proizvoda na Balkanu. Pomognite nam da budemo još bolji, pošaljite nam svoje predloge. Sa vama smo jači!
+@endsection
+@section('keywords') vegan vegansko vegetarijansko cruelty-free gluten-free zajednica @endsection
+  @section('socialUrl', '/predlozite')
+  @section('socialTitle', 'Vegelije: predložite proizvod!')
+  @section('ogType', 'article')
 
 @section('content')
 
-  <div class="col-10 offset-1 col-md-8 offset-md-2">
+  <main class="col-10 offset-1 col-md-8 offset-md-2">
     <div class="row">
 
-      <div class="col-12 loggedUser mb-md-4">
+      <section class="col-12 loggedUser mb-md-4">
         <div class="row d-flex justify-content-end">
           <div class="avatar col-2 col-md-2 col-lg-1">
             <img src="{{$googleUser->user['picture']}}" alt="" class="rounded-circle">
@@ -17,11 +23,11 @@
             <a href="{{route('googleUserLogout')}}">izlogujte se</a>
           </div>
         </div>
-      </div>
+      </section>
 
 
 
-      <div class="col-12 mb-3">
+      <section class="col-12 mb-3">
         {{-- {{dd($googleUser->name)}} --}}
         <h1 class='fo1 spaced2 mb-2 mb-lg-4 c1'>Predložite proizvod</h1>
         <h4 class='fo1 c2'><strong>{{$googleUser->user['gender'] == 'female'? 'Poštovana' : 'Poštovani'}} {{$googleUser->user['name']}},
@@ -30,11 +36,11 @@
 
         <h5 class="fo1 c2">Možete predložiti konkretan proizvod (na primer, "Napolitanke Kokos proizvođača Vege d.o.o"),
         ali i druge proizvode i delove proizvoda, kao što su konzervansi, odrđena vrsta kozmetike i sl.</h5>
-      </div>
+      </section>
 
 
 
-      <div class="col-12">
+      <section class="col-12">
         <form action="{{route('storeSuggestion')}}" method="post" enctype="multipart/form-data">
 
           @csrf
@@ -97,6 +103,8 @@
           <div class="form-group my-4 c2">
             <h4 class="fo1 c2"><strong>Slike proizvoda</strong></h4>
             <h6 class="fo1 c2">Molimo Vas da nam šaljete isključivo slike koje ste sami uslikali</h6>
+            <h6 class="c2 ">Maksimalna veličina svake pojedinačne slike iznosi {{config('app.maxfilesize')}}MB.</h6>
+
             <multiple-input-files :max-no-of-fields="2" :name="'images'" :must-upload-multiple='true'>
               <h4 slot="errorMsg">Možete poslati najviše 2 slike!</h4>
             </multiple-input-files>
@@ -117,9 +125,9 @@
 
 
         </form>
-      </div>
+      </section>
     </div>
-  </div>
+  </main>
 
 
 @endsection

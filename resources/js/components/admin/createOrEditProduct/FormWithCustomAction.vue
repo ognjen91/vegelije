@@ -2,11 +2,23 @@
 <template lang="html">
 
   <form :action="formParams.actionUrl" class="creationForm w-100" :class="{disabledForm : disableForm}" method="post" enctype="multipart/form-data" :id='formId'>
+
     <div class="disablingWindow" v-if='disableForm'></div>
     <slot name='token'></slot>
 
     <slot name="defaults"></slot>
 
+
+    <slot  name="category"></slot>
+
+
+   <!-- zbog buga moram ovako(inace polje ne moze da se mijenja...):  -->
+    <div  v-if='formParams.isExactProduct'>
+      <slot name="commentEditor"></slot>
+    </div>
+    <div  v-else>
+      <slot name="commentEditor"></slot>
+    </div>
 
     <div key='1' v-if='formParams.isExactProduct'>
       <slot  name="manufacturer"></slot>
@@ -14,15 +26,11 @@
 
 
 
-      <slot  name="category"></slot>
-
-
-
     <div  v-if='formParams.isExactProduct'>
       <slot  name="isVege"></slot>
     </div>
 
-    <slot name="commentEditor"></slot>
+
 
     <slot name='image'></slot>
 

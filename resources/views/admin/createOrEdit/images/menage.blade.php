@@ -2,6 +2,9 @@
 
 @section('content')
 
+
+@include('includes.goBack')
+
 <div class="col-10 offset-1 col-md-8 offset-md-2 mb-4">
   <h1 class='pl-4 underlined'><strong>{{ $serbianNameOfType }} {{$imageableObject->name}} : slike</strong></h1>
 </div>

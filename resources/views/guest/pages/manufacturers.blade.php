@@ -1,18 +1,25 @@
 @extends('layouts.app')
 @section('pageTitle', 'Proizvođači')
+@section('pageDescription')
+Vegelije pretraga proizvođača. Pronađite proizvođača i proverite da li su njegovi proizvodi veganski i vegetarijanski. Ukupno {{$manufacturers->count()}} proizvođača u bazi!
+@endsection
+@section('keywords') proizvođači pretraga vegan vegansko vegetarijansko cruelty-free gluten-free  @endsection
+  @section('socialUrl', '/proizvodjaci')
+  @section('socialTitle', 'Vegelije: pretraga proizvođača')
+  @section('socialDescription', "Vegelije pretraga proizvođača: pronađite svog omiljenog proizvođača i proverite da li su njegovi proizvodi veganski i vegetarijanski")
+  @section('ogType', 'article')
 
 
 @section('content')
 
-<div class="col-12">
+<main class="col-12">
   <div class="row">
 
-    <div class="col-2 manufLeftSidebar manufSidebar rounded">
+    <section class="col-2 manufLeftSidebar manufSidebar rounded">
       <p></p>
+    </section>
 
-    </div>
-
-  <div class="col-8 mb-5 px-2 manufPageContent rounded">
+  <section class="col-8 mb-5 px-2 manufPageContent rounded">
     <div class="row">
 
       <div class="col-12 mb-2 mb-md-3">
@@ -33,15 +40,13 @@
     </div>
 
 
-  </div>
+  </section>
 
-  <div class="col-2 manufRightSidebar manufSidebar rounded">
-
-  </div>
+  <section class="col-2 manufRightSidebar manufSidebar rounded"></section>
 
 
   </div>
-</div>
+</main>
 
 
 

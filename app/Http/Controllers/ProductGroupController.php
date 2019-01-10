@@ -16,7 +16,7 @@ class ProductGroupController extends Controller
 
   public function __construct()
 {
-        $this->middleware('auth', ['only' => ['store', 'edit', 'update', 'destroy', 'indexTrash', 'restore']]);
+        // $this->middleware('auth', ['only' => ['store', 'edit', 'update', 'destroy', 'indexTrash', 'restore']]);
         // $this->middleware('subscribed', ['except' => ['fooAction', 'barAction']]);
 }
 
@@ -99,7 +99,7 @@ class ProductGroupController extends Controller
        if(request('isFromSuggestion') && intval(request('suggestionAccepted'))){
        event(new SuggestionAccepted($product, $request));
        }
-       $msg = !request('isFromSuggestion')? 'Proizvod je uspješno ubačen' : 'Sugestija je uspješno obrađena : proizvod prihvaćen';
+       $msg = !request('isFromSuggestion')? 'Grupa proizovda je uspješno ubačena' : 'Sugestija je uspješno obrađena : grupa proizvoda prihvaćena';
        return redirect()->route('productGroups', $product->name[0])->withSuccess($msg);
      }
   }
@@ -122,7 +122,7 @@ class ProductGroupController extends Controller
   public function update(UpdateProductGroupRequest $request, ProductGroup $product)
   {
       $validated = $request->validated();
-      if (ProductGroup::updateProduct($product, $request)) return redirect()->route('home')->withSuccess('Proizvod'.$product->name.'je uspješno izmjenjen');
+      if (ProductGroup::updateProduct($product, $request)) return redirect()->route('editProductGroup', $product->id)->withSuccess('Grupa proizvoda '.$product->name.' je uspješno izmjenjena');
   }
 
   public function destroy($id){

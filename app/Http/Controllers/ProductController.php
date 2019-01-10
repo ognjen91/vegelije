@@ -17,7 +17,7 @@ class ProductController extends Controller
 
     public function __construct()
   {
-          $this->middleware('auth', ['only' => ['store', 'edit', 'update', 'destroy', 'indexTrash', 'restore']]);
+          // $this->middleware('auth', ['only' => ['store', 'edit', 'update', 'destroy', 'indexTrash', 'restore']]);
   }
 
    public function index($letter = 'A'){
@@ -53,7 +53,7 @@ class ProductController extends Controller
             if(request('isFromSuggestion') && intval(request('suggestionAccepted'))){
             event(new SuggestionAccepted($product, $request));
             }
-            $msg = !request('isFromSuggestion')? 'Proizvod je uspješno ubačen' : 'Sugestija je uspješno obrađena : proizvod prihvaćen';
+            $msg = !request('isFromSuggestion')? 'Proizvod je uspješno ubačen.': 'Sugestija je uspješno obrađena : proizvod prihvaćen';
             return redirect()->route('editProduct', $product->id)->withSuccess($msg);
       }
    }

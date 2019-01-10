@@ -52,7 +52,7 @@
           </p>
          </icon-warning-and-action>
         @else
-        <icon-warning-and-action :url="'{{route('deleteProduct', $manufacturer->id)}}'" :target-item-name="'{{$manufacturer->name}}'" :icon='"fas fa-trash trashCan"' :method="'delete'">
+        <icon-warning-and-action :url="'{{route('deleteManufacturer', $manufacturer->id)}}'" :target-item-name="'{{$manufacturer->name}}'" :icon='"fas fa-trash trashCan"' :method="'delete'">
           <p slot="msg">
           Da li ste sigurni da želite da obrišete proizvođača
           </p>

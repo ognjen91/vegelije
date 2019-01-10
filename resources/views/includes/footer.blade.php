@@ -1,4 +1,9 @@
 <footer class="row pt-5 pt-lg-4 @if(Route::currentRouteName() == 'checkProduct') @if(!$product->isRecommended) checkProductFooter @else checkRecommendedFooter @endif @endif">
+<div class="col-12 mb-4 attention">
+<p class='text-center c5'><small>*Svi podaci na sajtu su informativnog karaktera i služe isključivo boljem informisanju potrošača. <br>
+Ne možemo garantovati za tačnost podataka, ali imamo najbolju nameru.</small></p>
+</div>
+
 
   <div class="col-12 mb-1 categories">
     <div class="row px-3">
@@ -23,7 +28,7 @@
         <a href="{{config('app.insta')}}" class="c1Link mx-1 mx-md-2"><i class="fab fa-instagram text-light"></i></a>
         <br>
       <span class="spaced2">
-        Aplikaciju razvio <a class='underlined' href="http://www.github.com/ognjen91">Ognjen</a>
+        Aplikaciju razvio <a class='underlined' href="{{config('app.ognjen_site')}}">Ognjen</a>
       <span>
       </p>
     </div>

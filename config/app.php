@@ -55,6 +55,14 @@ return [
     'url' => env('APP_URL', 'http://localhost'),
     'fb' => env('APP_FB', 'http://www.facebook.com'),
     'insta' => env('APP_INSTA', 'http://www.instagram.com'),
+    'skrill' => env('APP_SKRILL', 'http://www.skrill.com'),
+    'ognjen_site' => env('AUTOR_SITE', 'https://github.com/ognjen91/'),
+    'maxfilesize'=>env('MAX_FILE_SIZE', 3.5),
+
+    'initial_no_of_new_products'=>env('INITIAL_NEW_PRODUCTS', 6),
+    'initial_no_of_new_product_groups'=>env('INITIAL_NEW_PRODUCT_GROUPS', 2),
+    'initial_no_of_random_products'=>env('INITIAL_RANDOM_PRODUCTS', 4),
+    'initial_no_of_recom_products'=>env('INITIAL_RECOM_PRODUCTS', 4),
 
     'asset_url' => env('ASSET_URL', null),
 

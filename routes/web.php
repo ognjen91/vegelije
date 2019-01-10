@@ -49,7 +49,7 @@ Route::post('/predlozite/slike/{product}', 'ImageSuggestionController@store')->n
 
 
 
-Route::prefix('admin')->group(function () {
+Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
     //dashboard
   Route::get('/', ['middleware'=>'roles', 'roles'=>['Admin', 'Moderator'], 'uses'=>'HomeController@index'])->name('home');
   Route::get('/letter/{letter?}', 'HomeController@index');
@@ -58,7 +58,7 @@ Route::prefix('admin')->group(function () {
 
 
   // =====ADMIN BUSSINES =========
-  Route::group(['prefix'=>'bussines', 'middleware'=>'roles', 'roles'=>['Admin']],function () {
+  Route::group(['prefix'=>'business', 'middleware'=>'roles', 'roles'=>['Admin']],function () {
   Route::get('', 'AdminBusinessController@index')->name('adminBussines');
 
   // =====ciscenje viska slika... ne bi trebalo da bude posla za ovo, ali neka stoji za svaki slucaj=====

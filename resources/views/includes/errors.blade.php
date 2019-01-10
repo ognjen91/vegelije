@@ -1,9 +1,9 @@
 @if ($errors->any())
-  <div class="row errorsRow">
+  <div class="row errorsRow py-2 py-md-3" id="notice">
     <div class="col">
-        <ul class='p-y-2 row'>
+        <ul class='py-2 row'>
             @foreach ($errors->all() as $error)
-                <li class='offset-2 col-8 text text-center alert alert-danger'><strong>{{ $error }}</strong></li>
+                <li class='offset-2 col-8 text text-center text-danger alert alert-danger mb-1 '><h4><strong>{{ $error }}</strong></h4></li>
             @endforeach
         </ul>
     </div>
@@ -11,10 +11,10 @@
 @endif
 
 
-@if(session('error'))
+{{-- @if(session('error'))
 <div class="row errorsRow md-4 px-3 py-2 d-flex justify-content-center">
   <div class="col-8 alert alert-danger">
-    <h3 class="text text-center">{{session('error')}}</h3>
+    <h3 class="text text-center text-danger">{{session('error')}}</h3>
   </div>
 </div>
-@endif
+@endif --}}

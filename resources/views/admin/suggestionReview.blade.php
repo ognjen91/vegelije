@@ -101,7 +101,7 @@
       Predložen je <span style="color:red;">{{$suggestion->manufacturer}}</span><br>
      </template>
       </custom-select>
-      <h5 class="fo1">Proizvođača nema na spsiku? <a href="">Dodajte ga ovde</a></h5>
+      <h5 class="fo1">Proizvođača nema na spsiku? <a href="{{route('createManufacturer')}}">Dodajte ga ovde</a></h5>
       </div>
 
       {{-- veganski/vegeterijanski/ni1ni2 --}}
@@ -147,6 +147,19 @@
                      :old-value="'{{$suggestion->tags}}'"
                      @enderrors>
           </add-tags>
+
+
+
+            @admin
+              <div slot=additional class='row my-5'>
+                <a href="{{route('editImages', ['Suggestion', $suggestion->id])}}" class="btn btn-primary btn-block btn-lg">
+                  Menadžer slika za ovaj prijedlog
+                </a>
+            </div>
+            @endadmin
+
+
+
         </div>
 
 

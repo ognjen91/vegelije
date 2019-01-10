@@ -1,6 +1,6 @@
 
 
-<div class="row  d-flex flex-wrap px-1 px-lg-3">
+<div class="row  d-flex flex-wrap px-1 px-lg-3 pt-md-1">
   <div class="col-12">
     <h5 class='text-center c2'><strong>slučajne oznake</strong></h5>
   </div>

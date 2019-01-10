@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('pageTitle', 'Predložite sliku')
-
+@section('pageTitle', 'Predložite proizvod')
+@section('pageDescription')
+Najsveobuhvatnije pretraga veganskih i vegetarijanskih proizvoda na Balkanu. Pomognite nam da budemo još bolji, pošaljite nam svoje predloge slika za proizvod {{$product->name}}. Sa vama smo jači!
+@endsection
+@section('keywords') vegan vegansko vegetarijansko cruelty-free gluten-free zajednica @endsection
+  @section('socialUrl', '/predlozite/slike/{{$product->id}}')
+  @section('socialTitle', 'Vegelije: predložite sliku za proizvod {{$product->name}}!')
+  @section('ogType', 'article')
 
 @section('content')
 
@@ -22,6 +29,7 @@
   <div class="row">
     <div class="col-12">
     <h4 class="c2 text-center">Predložite novu sliku za proizvod {{$product->name}} proizvođača {{$product->manufacturer->name}}</h4>
+
     <h5 class='c2 text-center'>
       @if(!$product->images->count())
       Nemamo ni jednu sliku za ovaj proizvod.
@@ -30,8 +38,9 @@
       @endif
       Možete predložiti @if($product->images->count())još@endif do {{4-$product->images->count()}}
       {{4-$product->images->count() == 1? "sliku" : "slike"}}.</h5>
+      <h6 class="c2 text-center">Maksimalna veličina svake pojedinačne slike iznosi {{config('app.maxfilesize')}}MB.</h6>
+      
       </div>
-
 
 
     <form action="{{route('storeImageSuggestion', $product->id)}}" class="col-10 offset-1 col-md-8 offset-md-2 py-2" method="post" enctype="multipart/form-data">

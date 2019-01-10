@@ -1,9 +1,19 @@
 @extends('layouts.app')
 @section('pageTitle', 'Kategorije')
+@section('pageDescription')
+Najsveobuhvatnije pretraga veganskih i vegetarijanskih proizvoda na Balkanu. Kategorije: @foreach ($categories as $name=>$data) {{$name}} @endforeach.
+Pronađite proizvod za koji niste sigurni i proverite!
+@endsection
+@section('keywords') vegan vegansko vegetarijansko cruelty-free gluten-free @foreach($categories as $name=>$data) {{$name}} @endforeach @endsection
+  @section('socialUrl', '/kategorije')
+  @section('socialTitle', 'Vege li je: prikaz kategorija')
+  @section('socialDescription', "Vegelije prikaz kategorija. Pronađite kategoriju koja Vas zanima i proverite da li se proizvodi povezani sa njom vege!")
+  @section('ogType', 'article')
+
 
 @section('content')
 
-<div class="col-12 mb-2 mb-lg-1">
+<main class="col-12 mb-2 mb-lg-1">
   <div class="row">
     @foreach ($categories as $name=>$data)
       @php
@@ -26,13 +36,13 @@
      </a>
     @endforeach
   </div>
-</div>
+</main>
 
 
 @if($secondAd)
-<div class="col-10 offset-1 col-md-8 offset-md-2 my-5">
+<aside class="col-10 offset-1 col-md-8 offset-md-2 my-5">
   @include('includes.ads.SecondAdDown')
-</div>
+</aside>
 @endif
 
 

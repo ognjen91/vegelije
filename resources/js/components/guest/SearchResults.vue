@@ -2,15 +2,21 @@
 
   <div class="row mb-4 pl-lg-5"  id="searchResults" v-if="results.exact.length || results.other.length">
 
+    <h1>
+      <a  class="ml-2 backRouteLink" @click="closeResults">
+        <i class="c1 fas fa-arrow-circle-left ml-3 mt-3 mb-2 backRoute"></i>
+      </a>
+    </h1>
+
     <div class="col-12">
       <h3 class="py-4 mb-4 text-center c1">
         Rezultati pretrage : {{ searchTerm }} <span v-if="manufacturerTerm">, proizvođač "{{manufacturerTerm}}"</span>
        </h3>
     </div>
 
-    <div class="col-12 mb-3">
+    <!-- <div class="col-12 mb-3">
       <h4 class='text-center c2 goBack' @click="closeResults"><i class="fas fa-arrow-circle-left"></i> Nazad</h4>
-    </div>
+    </div> -->
 
 
     <h3 class="py-2 mb-3 mt-lg-4 mb-lg-5 text-center spaced c1 w-100">
@@ -42,10 +48,6 @@
         </div>
       </div>
     </template>
-
-
-
-
 
   </div>
 

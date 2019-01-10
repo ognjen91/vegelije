@@ -42731,17 +42731,16 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
 
-$(".searchResult").click(function () {
-    // console.log('ok');
-    console.log($(this).height());
-});
-
 $("#hamburger").click(function () {
     $("#menu").removeClass("mobileMenuHide").addClass("mobileMenuShow");
 });
 $("#closeMenu").click(function () {
     $("#menu").removeClass("mobileMenuShow").addClass("mobileMenuHide");
 });
+
+if ($('#notice').length) setTimeout(function () {
+    return $('#notice').slideUp();
+}, 5500);
 
 /***/ }),
 /* 22 */
@@ -50098,7 +50097,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50111,6 +50110,8 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+//
+//
 //
 //
 //
@@ -50261,6 +50262,22 @@ var render = function() {
         "div",
         { staticClass: "row mb-4 pl-lg-5", attrs: { id: "searchResults" } },
         [
+          _c("h1", [
+            _c(
+              "a",
+              {
+                staticClass: "ml-2 backRouteLink",
+                on: { click: _vm.closeResults }
+              },
+              [
+                _c("i", {
+                  staticClass:
+                    "c1 fas fa-arrow-circle-left ml-3 mt-3 mb-2 backRoute"
+                })
+              ]
+            )
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "col-12" }, [
             _c("h3", { staticClass: "py-4 mb-4 text-center c1" }, [
               _vm._v(
@@ -50274,20 +50291,6 @@ var render = function() {
                   ])
                 : _vm._e()
             ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 mb-3" }, [
-            _c(
-              "h4",
-              {
-                staticClass: "text-center c2 goBack",
-                on: { click: _vm.closeResults }
-              },
-              [
-                _c("i", { staticClass: "fas fa-arrow-circle-left" }),
-                _vm._v(" Nazad")
-              ]
-            )
           ]),
           _vm._v(" "),
           _vm._m(0),
@@ -50757,7 +50760,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50820,8 +50823,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   watch: {
     searchResultsShown: function searchResultsShown(val) {
       if (val) {
+        $("#searchResults").css('min-height', '90vh');
         $(".initial").hide();
-        $("#results").fadeIn();
+        $("#searchResults").fadeIn(200, function () {
+          return $("#searchResults").css('min-height', 'initial');
+        });
         $("#randomTags").addClass('tagsOnSearch');
       }
     }
@@ -54809,6 +54815,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['disableForm'],
@@ -54866,17 +54880,19 @@ var render = function() {
       _vm._v(" "),
       _vm._t("defaults"),
       _vm._v(" "),
+      _vm._t("category"),
+      _vm._v(" "),
+      _vm.formParams.isExactProduct
+        ? _c("div", [_vm._t("commentEditor")], 2)
+        : _c("div", [_vm._t("commentEditor")], 2),
+      _vm._v(" "),
       _vm.formParams.isExactProduct
         ? _c("div", { key: "1" }, [_vm._t("manufacturer")], 2)
         : _vm._e(),
       _vm._v(" "),
-      _vm._t("category"),
-      _vm._v(" "),
       _vm.formParams.isExactProduct
         ? _c("div", [_vm._t("isVege")], 2)
         : _vm._e(),
-      _vm._v(" "),
-      _vm._t("commentEditor"),
       _vm._v(" "),
       _vm._t("image"),
       _vm._v(" "),
@@ -57000,7 +57016,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -57011,6 +57027,9 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
 //
 //
 //
@@ -57108,7 +57127,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
 
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    $("#selectingProductGroups").hide();
+    $('body').on('click', '#showHideSelectingGroup', function () {
+      $("#selectingProductGroups").slideToggle();
+    });
+  }
 });
 
 /***/ }),
@@ -57157,9 +57181,10 @@ var render = function() {
         },
         [
           _c("strong", [
-            _vm._v(
-              "\n      Prikazi ili sakrij slične rezultate po imenu / ako postoje\n      "
-            ),
+            _c("span", { staticClass: "text-danger" }, [
+              _vm._v("Pronađeni su proizvodi/grupe sa sličnim imenom.")
+            ]),
+            _vm._v(" Prikaži ili sakrij klikom na strelicu\n      "),
             _c("i", {
               staticClass: "fas ",
               class: {
@@ -57198,6 +57223,8 @@ var render = function() {
       _vm.isExactProduct ? _c("div", [_vm._t("selectGroups")], 2) : _vm._e(),
       _vm._v(" "),
       _vm._t("tags"),
+      _vm._v(" "),
+      _vm._t("additional"),
       _vm._v(" "),
       _c("input", {
         attrs: { type: "hidden", name: "isFromSuggestion", value: "1" }

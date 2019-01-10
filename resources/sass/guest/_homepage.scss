@@ -10,6 +10,7 @@ html,body{
 .titleWrap{
   display: flex;
   justify-content: center;
+  cursor: default;
 }
 
 .appTitle{
@@ -50,6 +51,17 @@ html,body{
   @media screen and (min-width: $sm){
     padding: 2% 0%;
   }
+  @media screen and (min-width: $lg){
+    padding: 1% 0%;
+  }
+}
+
+.homepage{
+
+    @media screen and (min-width: $lg){
+      padding: 0%;
+    }
+
 }
 
 

@@ -26,7 +26,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\ImagesSuggestionProceeded'=>[
           'App\Listeners\ProceedImagesSuggestion', //treba je izbrisati [soft delete] + izbrisati notif
-        ],
+        ]
     ];
 
     /**

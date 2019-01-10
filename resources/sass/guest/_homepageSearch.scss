@@ -64,8 +64,13 @@
 
   @media screen and (min-width: $sm){
     @include flexCenterImg();
-  }
 
+  }
+  @media screen and (min-width: $md){
+    @include flexCenterImg(80%);
+    max-height: 180px;
+
+  }
 
 }
 

@@ -43,6 +43,8 @@
 </table>
   @else
     <div class="col-12 py-3"><h5 class="text-danger">Nema ubačenih slika za {{$manufacturer->name}}</h5></div>
+    <input type="hidden" name="image" value='placeholder.png'>
+
   @endif
 
 

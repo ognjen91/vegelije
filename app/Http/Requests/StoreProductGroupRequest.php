@@ -29,8 +29,10 @@ class StoreProductGroupRequest extends FormRequest
     public function rules()
     {
         return [
-          'name' => 'required',
-          'tags' => 'min:2' //to je realan minimum, cisto da eliminisem prazan string
+          'name' => 'required|unique:products,name',
+          'tags' => 'min:2', //to je realan minimum, cisto da eliminisem prazan string
+          'image'=> 'max:4000'. config('app.maxfilesize')*1024 . '|mimes:jpg,jpeg,png'
+
         ];
     }
 
@@ -38,7 +40,11 @@ class StoreProductGroupRequest extends FormRequest
     {
         return [
         'name.required' => 'Neophodno je da unesete naziv proizvoda!',
-        'tags.min' => 'Molimo unesite bar jedan tag!'
+        'name.unique'=>'Grupa proizvoda istovetnog naziva već postoji u bazi!',
+        'tags.min' => 'Molimo unesite bar jedan tag!',
+        'image.uploaded' => 'Slika je prevelika: dozvoljena veličina slike iznosi ' . config('app.maxfilesize') .'MB. Molimo, pokušajte ponovo',
+        'image.mimes' => 'Neodgovarajući format slike. Dozvoljeni formati su: jpg, jpeg, png'
+
     ];
     }
 }

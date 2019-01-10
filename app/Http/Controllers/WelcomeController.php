@@ -15,15 +15,20 @@ class WelcomeController extends Controller
 {
     public function index(){
 
-         $lastProducts = Product::orderBy('created_at', 'desc')->get()->take(6);
-         $lastProductGroups = ProductGroup::orderBy('created_at', 'desc')->get()->take(2);
+         $products = Product::orderBy('created_at', 'desc')->get();
+         $productGroups = ProductGroup::orderBy('created_at', 'desc')->get();
+
+         $lastProducts = $products->count() > config('app.initial_no_of_new_products')? $products->take(config('app.initial_no_of_new_products')) : $products;
+         $lastProductGroups = $productGroups->count() > config('app.initial_no_of_new_product_groups')? $productGroups->take(config('app.initial_no_of_new_product_groups')) : $productGroups;
+      
          $lastProducts = $lastProducts->merge($lastProductGroups);
 
-          $randomProducts =  Product::get()->random(4);
+         $randomProducts =  $products->count() > config('app.initial_no_of_random_products')? Product::get()->random(config('app.initial_no_of_random_products')) : Product::get()->random($products->count());
+
           $recommendedProductsCounter = Product::where('isRecommended', '1')->get()->count();
           if($recommendedProductsCounter){
-            $products  = Product::where('isRecommended', '1')->inRandomOrder();
-            $recommendedProducts = $recommendedProductsCounter >= 4? $products->take(4)->get() : ($recommendedProductsCounter == 3? $products->take(2)->get() : $products->get());
+            $theProducts  = Product::where('isRecommended', '1')->inRandomOrder();
+            $recommendedProducts = $recommendedProductsCounter >= config('app.initial_no_of_recom_products')? $theProducts->take(config('app.initial_no_of_recom_products'))->get() : $theProducts->take($recommendedProductsCounter)->get();
           }
 
 

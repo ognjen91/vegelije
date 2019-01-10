@@ -57,14 +57,7 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
-
-
-
-$(".searchResult").click(function(){
-    // console.log('ok');
-    console.log($(this).height());
-})
-
-
 $("#hamburger").click(()=>{$("#menu").removeClass("mobileMenuHide").addClass("mobileMenuShow")})
 $("#closeMenu").click(()=>{$("#menu").removeClass("mobileMenuShow").addClass("mobileMenuHide")})
+
+if($('#notice').length) setTimeout(()=>$('#notice').slideUp(), 5500);

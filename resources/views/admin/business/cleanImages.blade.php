@@ -5,7 +5,8 @@
 <div class="col-8 offset-2 mb-5">
   <div class="row">
     <div class="col-8 offset-2">
-      <h2 class="c2 text-center">Čišćenje foldera 'images' od nepotrebnog sadžaja</h2>
+      <h2 class="c2 text-center">Čišćenje foldera 'images' od nepotrebnog sadžaja </h2>
+      <h5 class="text-center text-danger">ukupno {{count($toDelete)}} fajlova je višak</h5>
 
       <div class="row d-flex flex-column">
 

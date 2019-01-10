@@ -1,12 +1,17 @@
 @extends('layouts.app')
 @section('pageTitle', 'Grupe proizvoda')
-
-
+@section('pageDescription')
+Vegelije: ukupno {{$productGroups->count()}} grupa proizvoda. Pronađite grupu za koji niste sigurni da li je veganska ili vegetarijanska, izlistajte proizvode i budite sigurni!
+@endsection
+@section('keywords') vegan vegansko vegetarijansko cruelty-free gluten-free @endsection
+  @section('socialUrl', '/grupe_proizvoda')
+  @section('socialTitle', 'Vegelije: grupe proizvoda')
+  @section('ogType', 'article')
 
 
 @section('content')
 
-<div class="col-12 mb-3 mb-md-5">
+<main class="col-12 mb-3 mb-md-5">
   <h2 class="text-center c1">Vegelije: <span class="c2">Grupe proizvoda</span></h2>
   <div class="row">
   <p class="col-12 selectListing d-flex mb-2 mb-md-3 text-center">
@@ -29,9 +34,9 @@
 
   </p>
 </div>
-</div>
+</main>
 
-<div class="col-12">
+<section class="col-12">
   <div class="row d-flex flex-wrap justify-content-between">
  @foreach ($productGroups as $key=>$group)
     <div class="col-6 col-md-4 col-lg-3 mb-2 mb-md-2 mb-lg-3  text-center d-flex justify-content-center">
@@ -46,7 +51,7 @@
 
  @endforeach
   </div>
-</div>
+</section>
 
 
 

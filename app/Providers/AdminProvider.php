@@ -22,7 +22,7 @@ class AdminProvider extends ServiceProvider
       view()->composer(['admin.createOrEdit', 'admin.suggestionReview'], function($view){
         $view->with('categories', \App\Category::all())
              ->with('manufacturers',  \App\Manufacturer::orderBy('name', 'asc')->get())
-             ->with('productGroups',  \App\ProductGroup::select('id', 'name')->get());
+             ->with('productGroups',  \App\ProductGroup::select('id', 'name')->orderBy('name','asc')->get());
       });
 
 

@@ -54,6 +54,7 @@ class SuggestionController extends Controller
     }
 
     public function destroy($id){
+      if(!Suggestion::withTrashed()->find($id)) return redirect()->route('suggestions')->withSuccess('Predlog je već obradio neko od moderatora.');
       Suggestion::destroy($id);
       return redirect()->route('suggestions')->withSuccess('Predlog odbačen.');
     }

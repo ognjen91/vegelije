@@ -1,8 +1,15 @@
 @extends('layouts.app')
-@section('pageTitle', 'Homepage')
+@section('pageTitle', 'Vegelije: vege pretraga i provera proizvoda')
+@section('pageDescription')
+Najsveobuhvatnije pretraga i provera veganskih i vegetarijanskih proizvoda na Balkanu. Pronađite proizvod za koji niste
+sigurni da li je veganski ili vegetarijanski, pretražite proizvode po proizvođačima, kategorijama, oznakama, ali
+i doprinesite sajtu i zajednici učestvujući u kreiranju novih saržaja i popravljanju starih.
+@endsection
+@section('keyword') vegan vegansko vegetarijansko cruelty-free gluten-free @foreach($randomTags as $tag) {{$tag}} @endforeach @endsection
+
 
 @section('content')
-
+{{-- {{dd(phpinfo())}} --}}
 @if($mainAds->count())
 <market-main-top :main-ad='{{$mainAds[rand(0, $mainAds->count()-1)]}}'></market-main-top>
 @endif
@@ -12,7 +19,7 @@
 
 <div class="col-12 w-100 mb-2 mb-md-3 mb-lg-4 mt-3 mt-sm-2 mt-lg-0 titleWrap d-flex flex-column">
   <h1 class="text-center w-100 c2 spaced appTitle">Vege Li Je <span class='c1' id="qmark"><strong>?</strong></span></h1>
-  <h5 class="text-center w-100 c2 spaced2"><small>provera vege i ostalih proizvoda</small></h5>
+  <h5 class="text-center w-100 c2 spaced2"><small>vege pretraga i provera proizvoda</small></h5>
 </div>
 
 {{-- ---------BARS+SEARCH BTN --}}
@@ -22,36 +29,36 @@
 
 {{-- ---------/BARS+SEARCH BTN --}}
 
-<div class="row">
+<main class="row">
 
 {{-- RANDOM TAGOVI --}}
-<div class="col-12 col-md-3 px-3 mt-3  px-md-3 mt-md-0 pt-md-2 col-lg-2 px-lg-1 randomTags" id="randomTags">
+<section class="col-12 col-md-3 px-3 mt-3  px-md-3 mt-md-0 pt-md-2 col-lg-2 px-lg-1 randomTags" id="randomTags">
  @include('guest.homepage.randomTags')
-</div>
+</section>
 {{-- //RANDOM TAGOVI --}}
 
 
 {{-- POCETNI PRIKAZ PROIZVODA --}}
-<div class="initial col-12 col-md-9 col-lg-9 pt-2 initialResults" id="initialResults">
+<section class="initial col-12 col-md-9 col-lg-9 pt-2 initialResults" id="initialResults">
       @include('guest.homepage.initialProducts')
-</div>
+</section>
 {{-- //POCETNI PRIKAZ PROIZVODA --}}
 
 
 {{-- REZULTATI PRETRAGE --}}
-<div class="col-12 col-md-9 col-lg-9 pt-2" id="results">
+<section class="col-12 col-md-9 col-lg-9 pt-2" id="results">
       <search-results></search-results>
-</div>
+</section>
 {{-- //REZULTATI PRETRAGE --}}
-</div>
+</main>
 
 
-<div class="col-12 col-md-9 col-lg-9 bottom d-flex justify-content-center mb-2 mb-md-4">
+<section class="col-12 col-md-9 col-lg-9 bottom d-flex justify-content-center mb-2 mb-md-4">
   @include('includes.ads.MainAdDown')
-</div>
+</section>
 
 
-</div>
+{{-- </div> --}}
 @endsection
 
 {{-- factory('App\Product', 300)->create()->each(function($u){$u->legalities()->sync([1,2]);); --}}

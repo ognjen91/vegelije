@@ -1,5 +1,6 @@
 <!-- ova komponenta je napravljena da bih imao jedinstvenu formu za ubac product-a i producGroup-a -->
 <template lang="html">
+
   <form :action="actionUrl" method="post" enctype="multipart/form-data" id="suggestionForm" @submit.prevent>
 
     <div class="col-12 alert alert-info p-3 mb-4" v-if='alreadyDeleted'>
@@ -8,7 +9,7 @@
 
 
     <p class="c1" @click="showSimilars = !showSimilars"><strong>
-      Prikazi ili sakrij slične rezultate po imenu / ako postoje
+      <span class="text-danger">Pronađeni su proizvodi/grupe sa sličnim imenom.</span> Prikaži ili sakrij klikom na strelicu
       <i class="fas " :class="{'fa-chevron-up': !showSimilars, 'fa-chevron-down': showSimilars}"></i>
     </strong></p>
      <div v-if="showSimilars">
@@ -54,6 +55,8 @@
 
     <slot name='tags'></slot>
 
+    <slot name='additional'></slot>
+
     <input type="hidden" name="isFromSuggestion" value="1">
     <input type="hidden" name='suggestionAccepted' :value='suggestionAccepted'>
     <input type="hidden" name="suggestionId" :value="suggestionId">
@@ -96,7 +99,10 @@ export default {
   },
 
   mounted(){
-
+    $("#selectingProductGroups").hide();
+    $('body').on('click', '#showHideSelectingGroup', function() {
+      $("#selectingProductGroups").slideToggle();
+    });
   }
 }
 </script>

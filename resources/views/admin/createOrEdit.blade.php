@@ -2,11 +2,13 @@
 
 @section('content')
 {{-- {{dd(get_class($product))}} --}}
-<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+
 
 {{-- vracanje iz obrisanih --}}
 
 <div class="col-10 offset-1 col-md-8 offset-md-2">
+
+
 @edit
 @if($product->deleted_at)
 <div class="col-12 my-4">
@@ -21,7 +23,7 @@
 @endif
 @endedit
 
-
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
 {{-- ======================FORMA==================================================== --}}
 {{-- forma koja sama mijenja sadrzaj, action i td --}}
@@ -79,9 +81,9 @@
 
 
        {{-- kategorija proizvoda --}}
-      <template slot='category'>
+      <div slot='category'>
         @include('admin.createOrEdit.category')
-      </template>
+      </div >
 
 
   </div>
@@ -115,7 +117,7 @@
      @enderrors>
     <template slot='selectTitle'>Proizvođač</template>
     </custom-select>
-    <p class='fo1'>Proizvođača nema na listi? <a href="#">Dodajte ga</a></p>
+    <p class='fo1'>Proizvođača nema na listi? <a href="{{route('createManufacturer')}}">Dodajte ga</a></p>
     </div>
 
 
