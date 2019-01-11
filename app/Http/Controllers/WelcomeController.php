@@ -20,7 +20,7 @@ class WelcomeController extends Controller
 
          $lastProducts = $products->count() > config('app.initial_no_of_new_products')? $products->take(config('app.initial_no_of_new_products')) : $products;
          $lastProductGroups = $productGroups->count() > config('app.initial_no_of_new_product_groups')? $productGroups->take(config('app.initial_no_of_new_product_groups')) : $productGroups;
-      
+
          $lastProducts = $lastProducts->merge($lastProductGroups);
 
          $randomProducts =  $products->count() > config('app.initial_no_of_random_products')? Product::get()->random(config('app.initial_no_of_random_products')) : Product::get()->random($products->count());
@@ -41,7 +41,7 @@ class WelcomeController extends Controller
           // dd(session()->all());
           // dd($oldTerm);
 
-          return view('welcome', compact('lastProducts', 'randomProducts', 'oldTerm', 'oldManuf', 'recommendedProducts', 'mainAd'));
+          return view('welcome', compact('lastProducts', 'randomProducts', 'oldTerm', 'oldManuf', 'recommendedProducts'));
     }
 
 
