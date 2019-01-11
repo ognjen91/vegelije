@@ -36,6 +36,8 @@ Route::post('/search', 'SearchResultsController@index')->name('productResults');
 Route::get('/top_liste', 'CounterController@index')->name('topLists');
 Route::get('/o_nama', 'WelcomeController@about')->name('aboutUs');
 
+// Route::get('/404', function(){return view('404');});
+
 
 // ============sugestije==============
 Route::get('/predlozite/proizvodi', 'SuggestionController@create')->name('suggestProduct');

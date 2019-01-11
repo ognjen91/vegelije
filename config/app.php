@@ -58,11 +58,14 @@ return [
     'skrill' => env('APP_SKRILL', 'http://www.skrill.com'),
     'ognjen_site' => env('AUTOR_SITE', 'https://github.com/ognjen91/'),
     'maxfilesize'=>env('MAX_FILE_SIZE', 3.5),
+    'maximagewidth'=>env('MAX_IMAGE_WIDTH', 1000),
+    'maximageheight'=>env('MAX_IMAGE_HEIGHT', 1000),
 
     'initial_no_of_new_products'=>env('INITIAL_NEW_PRODUCTS', 6),
     'initial_no_of_new_product_groups'=>env('INITIAL_NEW_PRODUCT_GROUPS', 2),
     'initial_no_of_random_products'=>env('INITIAL_RANDOM_PRODUCTS', 4),
     'initial_no_of_recom_products'=>env('INITIAL_RECOM_PRODUCTS', 4),
+    'popup_show_every_h'=>env('POPUP_SHOW_EVERY_H', 1),
 
     'asset_url' => env('ASSET_URL', null),
 

@@ -22,11 +22,11 @@ trait ImageWizzard {
         $height = $img->height();
         // resize image : provjerim da li je veca sirina ili duzina i max dimenziju ogranicim na 900px
         if($width>$height){
-          $width > 900? $img->resize(900, null, function ($constraint) {
+          $width > config('app.maximagewidth')? $img->resize(config('app.maximagewidth'), null, function ($constraint) {
             $constraint->aspectRatio();
           }) : null;
         } else {
-          $height> 900? $img->resize(null, 900, function ($constraint) {
+          $height> config('app.maximageheight')? $img->resize(null, config('app.maximageheight'), function ($constraint) {
             $constraint->aspectRatio();
           }) : null;
         }
@@ -55,11 +55,11 @@ trait ImageWizzard {
        $height = $img->height();
        // resize image : provjerim da li je veca sirina ili duzina i max dimenziju ogranicim na 900px
        if($width>$height){
-         $width > 900? $img->resize(900, null, function ($constraint) {
+         $width > config('app.maximagewidth')? $img->resize(config('app.maximagewidth'), null, function ($constraint) {
            $constraint->aspectRatio();
          }) : null;
        } else {
-         $height> 900? $img->resize(null, 900, function ($constraint) {
+         $height> config('app.maximageheight')? $img->resize(null, config('app.maximageheight'), function ($constraint) {
            $constraint->aspectRatio();
          }) : null;
        }
@@ -94,11 +94,11 @@ trait ImageWizzard {
          $height = $img->height();
          // resize image : provjerim da li je veca sirina ili duzina i max dimenziju ogranicim na 900px
          if($width>$height){
-           $width > 900? $img->resize(900, null, function ($constraint) {
+           $width > config('app.maximagewidth')? $img->resize(config('app.maximagewidth'), null, function ($constraint) {
              $constraint->aspectRatio();
            }) : null;
          } else {
-           $height> 900? $img->resize(null, 900, function ($constraint) {
+           $height> config('app.maximageheight')? $img->resize(null, config('app.maximageheight'), function ($constraint) {
              $constraint->aspectRatio();
            }) : null;
          }

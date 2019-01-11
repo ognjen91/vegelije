@@ -14556,6 +14556,69 @@ footer a:hover {
   list-style: none;
 }
 
+.view404 {
+  min-height: 100vh;
+  height: 100vh;
+  background-color: #995AC8;
+}
+
+.logo_no_name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo_no_name img {
+  width: 100%;
+  min-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .logo_no_name {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: -2%;
+  }
+
+  .logo_no_name img {
+    width: 80%;
+    min-width: 80%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .logo_no_name {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: -5%;
+  }
+
+  .logo_no_name img {
+    width: 70%;
+    min-width: 70%;
+  }
+}
+
 .backRouteLink {
   margin: 5%;
 }
@@ -15146,6 +15209,8 @@ input#manufacturerBar::-webkit-input-placeholder {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  display: flex;
+  justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -15157,6 +15222,16 @@ input#manufacturerBar::-webkit-input-placeholder {
 }
 
 .productImgOnPage .zoomableImage > div.zoomedImage {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.productImgOnPage .zoomableImage > div.zoomedImage > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15168,13 +15243,14 @@ input#manufacturerBar::-webkit-input-placeholder {
           align-items: center;
 }
 
-.productImgOnPage .zoomableImage > div.zoomedImage img {
+.productImgOnPage .zoomableImage > div.zoomedImage > div img {
   width: 80%;
   min-width: 80%;
 }
 
 @media screen and (min-width: 768px) {
-  .productImgOnPage .zoomableImage > div.zoomedImage {
+  .productImgOnPage .zoomableImage > div.zoomedImage > div {
+    width: 80%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -15186,14 +15262,15 @@ input#manufacturerBar::-webkit-input-placeholder {
             align-items: center;
   }
 
-  .productImgOnPage .zoomableImage > div.zoomedImage img {
-    width: 65%;
-    min-width: 65%;
+  .productImgOnPage .zoomableImage > div.zoomedImage > div img {
+    width: 78%;
+    min-width: 78%;
   }
 }
 
 @media screen and (min-width: 992px) {
-  .productImgOnPage .zoomableImage > div.zoomedImage {
+  .productImgOnPage .zoomableImage > div.zoomedImage > div {
+    width: 60%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -15205,7 +15282,7 @@ input#manufacturerBar::-webkit-input-placeholder {
             align-items: center;
   }
 
-  .productImgOnPage .zoomableImage > div.zoomedImage img {
+  .productImgOnPage .zoomableImage > div.zoomedImage > div img {
     width: 60%;
     min-width: 60%;
   }

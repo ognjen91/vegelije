@@ -53676,7 +53676,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -53703,10 +53703,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['mainAd'],
+  props: ['mainAd', 'showEvery'],
   data: function data() {
     return {
       shouldShow: false,
@@ -53716,7 +53717,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   mounted: function mounted() {
     var _this = this;
 
-    this.shouldShow = Object(__WEBPACK_IMPORTED_MODULE_0__functions__["a" /* shouldShow */])(1);
+    this.shouldShow = Object(__WEBPACK_IMPORTED_MODULE_0__functions__["a" /* shouldShow */])(this.showEvery);
     if (this.shouldShow) {
       setTimeout(function () {
         return _this.shouldShow = false;
@@ -56649,6 +56650,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["imageSrc"],
@@ -56708,11 +56711,13 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _c("img", {
-              staticClass: "zoomImg",
-              class: { zoomedNow: _vm.isZoomed },
-              attrs: { id: _vm.imgId, src: _vm.imageSrc, alt: "" }
-            })
+            _c("div", [
+              _c("img", {
+                staticClass: "zoomImg",
+                class: { zoomedNow: _vm.isZoomed },
+                attrs: { id: _vm.imgId, src: _vm.imageSrc, alt: "" }
+              })
+            ])
           ]
         )
       : _vm._e()

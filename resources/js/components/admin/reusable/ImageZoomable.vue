@@ -2,8 +2,10 @@
   <div class="zoomableImage">
     <img :src="imageSrc" alt="" @click="isZoomed = true">
     <div class="zoomedImage"  :src="imageSrc" v-if='isZoomed'>
-      <i class="fas fa-times-circle fa-2x closeImage" @click='isZoomed=false'></i>
-      <img :id="imgId" :class="{'zoomedNow':isZoomed}" class='zoomImg' :src="imageSrc" alt="">
+        <i class="fas fa-times-circle fa-2x closeImage" @click='isZoomed=false'></i>
+      <div>
+        <img :id="imgId" :class="{'zoomedNow':isZoomed}" class='zoomImg' :src="imageSrc" alt="">
+      </div>
     </div>
   </div>
 

@@ -11,7 +11,7 @@ i doprinesite sajtu i zajednici učestvujući u kreiranju novih saržaja i popra
 @section('content')
 {{-- {{dd(phpinfo())}} --}}
 @if($mainAds->count())
-<market-main-top :main-ad='{{$mainAds[rand(0, $mainAds->count()-1)]}}'></market-main-top>
+<market-main-top :show-every='{{config("app.popup_show_every_h",1)}}' :main-ad='{{$mainAds[rand(0, $mainAds->count()-1)]}}'></market-main-top>
 @endif
 <no-product-danger></no-product-danger>
 

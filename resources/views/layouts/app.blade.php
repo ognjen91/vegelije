@@ -39,7 +39,7 @@
         @include('includes.success')
 
         {{-- ({{dd(Route::currentRouteName())}}) --}}
-        <div class="row content pb-5 @if(Route::currentRouteName() == 'checkProduct') @if(!$product->isRecommended) checkProduct @else checkRecommended @endif
+        <div class="row content pb-5 @if(Route::currentRouteName() == 'checkProduct' && isset($product)) @if(!$product->isRecommended) checkProduct @else checkRecommended @endif
         @elseif(Route::currentRouteName() == 'welcome') mb-2 mb-lg-3 @else {{Route::currentRouteName()}} @endif">
 
             @auth

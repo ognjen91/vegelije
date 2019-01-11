@@ -1,3 +1,4 @@
+<!-- showEvery je broj sati na koje se prikazuje  -->
 <template lang="html">
   <div class="top periodicaly" v-if='shouldShow'>
 
@@ -16,7 +17,7 @@
 <script>
 import {shouldShow} from './functions';
 export default {
-  props : ['mainAd'],
+  props : ['mainAd', 'showEvery'],
   data(){
     return{
       shouldShow : false,
@@ -26,7 +27,7 @@ export default {
 
 
   mounted(){
-    this.shouldShow = shouldShow(1);
+    this.shouldShow = shouldShow(this.showEvery);
     if(this.shouldShow){
       setTimeout(()=>
           this.shouldShow = false, +this.mainAd.intervalInSeconds*1000);

@@ -1,0 +1,22 @@
+.view404{
+
+  min-height: 100vh;
+  height: 100vh;
+
+  background-color: #995AC8;
+
+}
+
+.logo_no_name{
+  @include flexCenterImg();
+
+  @media screen and (min-width: $md){
+    @include flexCenterImg(80%);
+    margin-bottom: -2%;
+  }
+
+  @media screen and (min-width: $lg){
+    @include flexCenterImg(70%);
+    margin-bottom: -5%;
+  }
+}

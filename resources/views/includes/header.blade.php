@@ -11,7 +11,7 @@
 
 
 <nav class="navbar row  mb-lg-0
-@if(Route::currentRouteName() == 'checkProduct') @if(!$product->isRecommended)checkProductHeader @else checkRecommendedHeader  @endif @else mb-2 mb-sm-1 {{Route::currentRouteName().'Header'}}@endif">
+@if(Route::currentRouteName() == 'checkProduct' && isset($product)) @if(!$product->isRecommended)checkProductHeader @else checkRecommendedHeader  @endif @else mb-2 mb-sm-1 {{Route::currentRouteName().'Header'}}@endif">
   {{-- {{dd($user->notifications()->whereNotNull('read_at')->get())}} --}}
 
     {{-- LOGO --}}

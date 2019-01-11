@@ -1,4 +1,4 @@
-<footer class="row pt-5 pt-lg-4 @if(Route::currentRouteName() == 'checkProduct') @if(!$product->isRecommended) checkProductFooter @else checkRecommendedFooter @endif @endif">
+<footer class="row pt-5 pt-lg-4 @if(Route::currentRouteName() == 'checkProduct' && isset($product)) @if(!$product->isRecommended) checkProductFooter @else checkRecommendedFooter @endif @endif">
 <div class="col-12 mb-4 attention">
 <p class='text-center c5'><small>*Svi podaci na sajtu su informativnog karaktera i služe isključivo boljem informisanju potrošača. <br>
 Ne možemo garantovati za tačnost podataka, ali imamo najbolju nameru.</small></p>

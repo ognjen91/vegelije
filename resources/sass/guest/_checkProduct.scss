@@ -39,21 +39,32 @@ background-color: $c205 !important;
 
 
   & .zoomableImage{
-
+   display: flex;
+   justify-content: center;
    @include flexCenterImg();
    &>img{
      // object-fit: cover;
    }
 
     &>div.zoomedImage{
-        @include flexCenterImg(80%);
-        @media screen and (min-width: $md){
-          @include flexCenterImg(65%);
-      }
 
-      @media screen and (min-width: $lg){
-        @include flexCenterImg(60%);
-     }
+       width: 100vw;
+       display: flex;
+       justify-content: center;
+    &>div{
+
+      @include flexCenterImg(80%);
+      @media screen and (min-width: $md){
+        width: 80%;
+        @include flexCenterImg(78%);
+    }
+
+    @media screen and (min-width: $lg){
+      width: 60%;
+      @include flexCenterImg(60%);
+       }
+    }
+
     }
 
     &>img{
