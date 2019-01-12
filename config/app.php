@@ -55,7 +55,7 @@ return [
     'url' => env('APP_URL', 'http://localhost'),
     'fb' => env('APP_FB', 'http://www.facebook.com'),
     'insta' => env('APP_INSTA', 'http://www.instagram.com'),
-    'skrill' => env('APP_SKRILL', 'http://www.skrill.com'),
+    'paypal' => env('APP_PAYPAL', 'vegelije@gmail.com'),
     'ognjen_site' => env('AUTOR_SITE', 'https://github.com/ognjen91/'),
     'maxfilesize'=>env('MAX_FILE_SIZE', 3.5),
     'maximagewidth'=>env('MAX_IMAGE_WIDTH', 1000),
