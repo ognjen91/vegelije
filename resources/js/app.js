@@ -61,3 +61,10 @@ $("#hamburger").click(()=>{$("#menu").removeClass("mobileMenuHide").addClass("mo
 $("#closeMenu").click(()=>{$("#menu").removeClass("mobileMenuShow").addClass("mobileMenuHide")})
 
 if($('#notice').length) setTimeout(()=>$('#notice').slideUp(), 5500);
+
+
+if (process.env.MIX_APP_ENV === 'production') {
+    Vue.config.devtools = false;
+    Vue.config.debug = false;
+    Vue.config.silent = true;
+}

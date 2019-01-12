@@ -42742,6 +42742,12 @@ if ($('#notice').length) setTimeout(function () {
     return $('#notice').slideUp();
 }, 5500);
 
+if (true) {
+    __WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.devtools = false;
+    __WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.debug = false;
+    __WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.silent = true;
+}
+
 /***/ }),
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
