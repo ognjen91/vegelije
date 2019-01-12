@@ -15855,7 +15855,7 @@ input#manufacturersSearch::-moz-placeholder {
 
 .top.periodicaly {
   position: fixed;
-  bottom: 0;
+  bottom: 2%;
   left: 0;
   width: 100vw;
   max-height: 30vh;
