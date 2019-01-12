@@ -22,12 +22,21 @@ Vegelije Top Lista: najčešće pregledani proizvodi i grupe proizvoda. Vi birat
 
 </main>
 
+@if($secondAd)
+<div class="col-12">
+  <div class="row d-flex justify-content-center">
 
+<slide-in-view :class-of-div='"col-10  col-md-8 my-2 my-md-3"' :duration='900'>
+  <div slot="entering" class="row">
+    <div class="col-12">
+      @include('includes.ads.SecondAdDown')
+    </div>
+  </div>
+</slide-in-view>
 
-
-
-
-
+</div>
+</div>
+@endif
 
 
 @endsection

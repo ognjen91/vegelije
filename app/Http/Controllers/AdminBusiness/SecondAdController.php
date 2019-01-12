@@ -16,7 +16,7 @@ class SecondAdController extends Controller
     public function store(Request $request){
       $rules = [
             'name'=>'required|min:2',
-            'intervalInSeconds'=>'required|integer',
+
             'sideImage'=> 'max:4000|mimes:jpg,jpeg,png',
             'downImage'=> 'max:4000|mimes:jpg,jpeg,png'
         ];

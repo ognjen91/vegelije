@@ -10,7 +10,7 @@
      <!-- SLIKA PROIZVODA -->
 
      <!-- INFO -->
-     <div class="col-8 col-lg-7 productQuickInfo">
+     <div class="col-8 col-lg-7 productQuickInfo d-flex flex-column justify-content-center">
        <h4 class="mb-1 spaced px-1 text-center c2 c1-md w-100 mb-2">{{product.name}}</h4>
 
 

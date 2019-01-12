@@ -29,13 +29,13 @@ export default {
     },
     placeholder1(){
       let placeholders = [
-        'čokolada', "napolitnake", "mammas pizza", "bananica", "mars", "praline", "emulgator E220", "alfabet supa"
+        'čokolada', "napolitnake", "mammas pizza", "bananica", "Twix", "praline", "Integrino", "pasta"
       ]
       return placeholders[Math.floor(Math.random()*placeholders.length)];
     },
     placeholder2(){
       let placeholders = [
-        "žele zeka", "piškote", "emuglator", "ratluk", "soja sos", "pita", "vino", "pivo"
+        "Žele Zeka", "Piškote", "emuglator", "ratluk", "soja sos", "pita", "vino", "pivo", "emulgator E220"
       ]
       return placeholders[Math.floor(Math.random()*placeholders.length)];
     }

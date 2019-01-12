@@ -3,20 +3,20 @@
 
     <div class="row">
 
-      <div class="rankingInfo col-3 col-lg-2 d-flex flex-column align-items-center justify-content-center">
+      <div class="rankingInfo col-12 col-lg-2 d-flex flex-column align-items-center justify-content-center">
         <h2 class='text-center c2 ranking rounded-circle'><strong>{{index+1}}</strong></h2>
         <p class='text-center c2'><small>{{product.viewsCount}} <span v-if="product.viewsCount%10!==1">pregleda</span><span v-else>pregled</span></small></p>
-        <h4 class='text-center' v-if="index<=2"><i :class="{gold : index ==0, silver : index == 1, bronze : index ==2}" class="fas fa-crown"></i></h4>
+        <h4 class='text-center' v-if="index<=2"><i class="fas fa-crown d-inline d-sm-inline-block" :class="{gold : index ==0, silver : index == 1, bronze : index ==2}"></i></h4>
       </div>
 
       <!-- SLIKA PROIZVODA -->
-     <div class="productImage col-4 col-lg-4">
+     <div class="productImage col-5 col-lg-4 topProductImage">
        <img :src="'/images/' + product.image" alt="product image" :id="index">
      </div>
      <!-- SLIKA PROIZVODA -->
 
      <!-- INFO -->
-     <div class="col-5 col-lg-6 productQuickInfo">
+     <div class="col-7 col-lg-6 productQuickInfo">
        <h6 class="d-md-none mb-1 spaced px-1 text-center c2 c1-md w-100 mb-2"><strong>{{product.name}}</strong></h6>
        <h3 class="d-none d-md-inline-block mb-1 spaced px-1 text-center c2 c1-md w-100 mb-2">{{product.name}}</h3>
 
@@ -32,7 +32,7 @@
           <span>u kategoriji </span><br class='d-md-none'> <span class="underlined c2 c1-md">{{product.category.name}}</span>
         </a>
 
-        <a  class="btn btn-primary rounded mt-2 px-2 vegelijeButton" :href="toProduct">Vege li je?</a>
+        <a  class="btn btn-primary rounded mt-2  vegelijeButton" :href="toProduct">Vege li je?</a>
      </div>
 
 

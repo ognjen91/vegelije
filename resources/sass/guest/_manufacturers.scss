@@ -63,6 +63,17 @@ font-family: $fo2;
 
 
  .manufImageInResult{
+   max-height: 80px;
+   overflow: hidden;
+   @media screen and (min-width: $sm){
+     max-height: 90px;
+ }
+ @media screen and (min-width: $md){
+   max-height: 110px;
+ }
+ @media screen and (min-width: $lg){
+   max-height: 130px;
+ }
     @include flexCenterImg(80%);
     @media screen and (min-width: $sm){
       @include flexCenterImg(65%);

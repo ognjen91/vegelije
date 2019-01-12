@@ -3,7 +3,7 @@
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 30vh;
+  max-height: 30vh;
   background-color: rgba(203, 180, 184, 0.0);
   z-index: 100;
   display: flex;
@@ -12,12 +12,13 @@
   flex-direction: column;
 
   @media screen and (min-width: $md){
-    height: 25vh;
+    max-height: 25vh;
   }
 }
 
 .closeMainTop{
-  // top: 0;
+  z-index: 101;
+  color: $c1 !important;
 
 }
 
@@ -30,13 +31,14 @@
 .frame{
 
   position: relative;
-  width: 90%;
-  margin-left: 5%;
+  width: 95%;
+  margin-bottom: 2%;
+  margin-left: 2.5%;
   @include flexCenterImg();
   // align-self: flex-end;
   // border: $redb;
   @media screen and (min-width: $md){
-    margin-bottom: 2%;
+    margin-bottom: 3%;
     width: 80%;
     margin-left: 10%;
     @include flexCenterImg(80%);

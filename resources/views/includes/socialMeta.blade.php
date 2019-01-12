@@ -17,8 +17,8 @@
 <!-- Open Graph data -->
 
 <meta property="og:title" content="@yield('socialTitle', 'Vegelije')" />
-<meta property="og:type" content="@yield('ogType', 'webiste')" />
-<meta property="og:url" content="{{config('app.url')}}@yield('socialUrl')" />
+<meta property="og:type" content="@yield('ogType', 'website')" />
+<meta property="og:url" content="http://vegelije.com".@yield('socialUrl') />
 <meta property="og:image" content="{{config('app.url')}}/images/@yield('socialImage', $image2)" />
 <meta property="og:description" content="@yield('socialDescription', $description)" />
 <meta property="og:site_name" content="Vegelije.com" />

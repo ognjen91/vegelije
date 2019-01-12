@@ -39,7 +39,10 @@ class Tag extends Model
     }
 
 
-
+    public static function getLatest(){
+      $noOfTags = self::get()->count();
+      return $noOfTags > 25? self::get()->random(25) : self::get()->random($noOfTags);
+    }
 
 
 

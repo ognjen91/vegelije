@@ -8,26 +8,42 @@
     <h5 class='text-center w-100 c1'><strong>Vegelije crew</strong></h5>
   </div>
   <div class="row">
-    <div class="col-4">
+    <div class="col-3 col-md-3">
       <h5 class="text-center">Ime</h5>
     </div>
-    <div class="col-4">
+    <div class="col-4 col-md-3">
       <h5 class="text-center">Email</h5>
     </div>
-    <div class="col-4">
+    <div class="col-3  col-md-3">
       <h5 class="text-center">Uloga</h5>
+    </div>
+    <div class="col-2 col-md-3">
+      <h5 class="text-center">Ovlasti/Razvlasti</h5>
     </div>
     @foreach ($users as $user)
       <div class="col-12">
         <div class="row">
-          <div class="col-4">
+          <div class="col-4 col-md-3">
             <p class="text-center"><strong>{{$user->name}}</strong></p>
           </div>
-          <div class="col-4">
+          <div class="col-4 col-md-3">
             <p class="text-center">{{$user->email}}</p>
           </div>
-          <div class="col-4">
+          <div class="col-3 col-md-3">
             <p class="text-center">{{$user->roles[0]->name}}</p>
+          </div>
+          <div class="col-1 col-md-3 d-flex justify-content center">
+            @if(!$user->hasAnyRole('Admin'))
+            <icon-warning-and-action :url="'{{route('editUsersRole', $user->id)}}'" :target-item-name="'{{$user->name}}'" :icon='"fa fa-arrow-right"' :method="'post'">
+              <p slot="msg">
+            @if($user->hasAnyRole('Moderator'))
+              Da li ste sigurni da želite da oduzmete zvanje moderatora od
+            @else
+              Da li želite da postavite za moderatora
+            @endif
+              </p>
+             </icon-warning-and-action>
+           @endif
           </div>
         </div>
       </div>

@@ -51,15 +51,84 @@ Route::post('/predlozite/slike/{product}', 'ImageSuggestionController@store')->n
 
 
 
-Route::group(['prefix'=>'admin','middleware' => ['auth', 'roles'], 'roles'=>['Admin', 'Moderator']], function () {
+Route::group(['prefix'=>'admin','middleware' => ['auth']], function () {
+
+
+  Route::group(['middleware' => ['roles'], 'roles'=>['Admin', 'Moderator']],  function () {
     //dashboard
-  Route::get('/', ['middleware'=>'roles', 'roles'=>['Admin', 'Moderator'], 'uses'=>'HomeController@index'])->name('home');
-  Route::get('/letter/{letter?}', 'HomeController@index');
-  // =====kreiranje proizvoda i grupa proizvoda, sve preko jedne dinamicne forme
-  Route::get('/create', 'HomeController@create')->name('newProduct');
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/letter/{letter?}', 'HomeController@index');
+    // =====kreiranje proizvoda i grupa proizvoda, sve preko jedne dinamicne forme
+    Route::get('/create', 'HomeController@create')->name('newProduct');
+
+    // =========MODS BUSSINESS==========
+    Route::get('/profile', 'ModController@edit')->name('profile');
+    Route::post('/profile/{id}', 'ModController@update')->name('editProfile');
+
+    // =======PRODUCTS===============
+    Route::post('/products', 'ProductController@store')->name('storeProduct');
+    Route::get('/products/{id}/edit', 'ProductController@edit')->name('editProduct');
+    Route::patch('/products/{product}', 'ProductController@update')->name('updateProduct');
+    Route::delete('/products/{product}', 'ProductController@destroy')->name('deleteProduct');
+    Route::get('/products/trash/{letter?}', 'ProductController@indexTrash')->name('trashedProducts');
+    Route::post('/products/trash/{id}', 'ProductController@restore')->name('restoreProduct');
+    Route::get('/products/{letter?}', 'ProductController@index')->name('products');
+
+    // =====PRODUCT GROUPS=========
+    Route::post('/product_groups', 'ProductGroupController@store')->name('storeProductGroup');
+    Route::get('/product_groups/{id}/edit', 'ProductGroupController@edit')->name('editProductGroup');
+    Route::patch('/product_groups/{product}', 'ProductGroupController@update')->name('updateProductGroup');
+    Route::delete('/product_groups/{product}', 'ProductGroupController@destroy')->name('deleteProductGroup');
+    Route::get('/product_groups/trash/{letter?}', 'ProductGroupController@indexTrash')->name('trashedProductGroups');
+    Route::post('/product_groups/trash/{id}', 'ProductGroupController@restore')->name('restoreProductGroup');
+    Route::get('/product_groups/{letter?}', 'ProductGroupController@index')->name('productGroups');
 
 
+    // =====MANUFACTURERS===============
+    Route::get('/manufacturer/create', 'ManufacturerController@create')->name('createManufacturer');
+    Route::get('/manufacturer/{manufacturer}/{letter?}', 'ManufacturerController@view')->name('manufacturerProducts');
+    Route::post('/manufacturers', 'ManufacturerController@store')->name('storeManufacturer');
+    Route::get('/manufacturers/{id}/edit', 'ManufacturerController@edit')->name('editManufacturer');
+    Route::patch('/manufacturers/{manufacturer}', 'ManufacturerController@update')->name('updateManufacturer');
+    Route::delete('/manufacturers/{manufacturer}', 'ManufacturerController@destroy')->name('deleteManufacturer');
+    Route::get('/manufacturers/trash/{letter?}', 'ManufacturerController@indexTrash')->name('trashedManufacturers');
+    Route::post('/manufacturers/trash/{id}', 'ManufacturerController@restore')->name('restoreManufacturer');
+    Route::get('/manufacturers/{letter?}', 'ManufacturerController@index')->name('manufacturers');
+
+    // =============IMAGES========================
+    Route::post('/image', 'ImageController@store')->name('storeImages');
+    Route::get('/images/{imageable_type}/{id}', 'ImageController@edit')->name('editImages');
+    Route::delete('/images/{id}', 'ImageController@destroy')->name('deleteImage');
+
+    // ========SUGGESTIONS================
+    Route::get('/suggestions', 'SuggestionController@index')->name('suggestions');
+    Route::get('/suggestions/trash', 'SuggestionController@indexTrash')->name('trashedSuggestions');
+    Route::get('/suggestions/{id}/edit', 'SuggestionController@edit')->name('suggestionReview');
+    Route::delete('/suggestions/{id}', 'SuggestionController@destroy')->name('deleteSuggestion');
+
+    Route::get('/imagesSuggestions', 'ImageSuggestionController@index')->name('imagesSuggestions');
+    Route::get('/imagesSuggestions/{id}/edit', 'ImageSuggestionController@edit')->name('imagesSuggestionReview');
+    Route::post('/imagesSuggestions/{id}', 'ImageSuggestionController@update')->name('proceedImagesSuggestion');
+
+    Route::get('/editSuggestions', 'ProductEditSuggestionController@index')->name('productEditSuggestions');
+    Route::get('/editSuggestions/{id}/edit', 'ProductEditSuggestionController@edit')->name('productEditSuggestionReview');
+    Route::post('/editSuggestions/{id}', 'ProductEditSuggestionController@update')->name('proceedProductEditSuggestion');
+
+    Route::get('/editGroupSuggestions', 'ProductGroupEditSuggestionController@index')->name('productGroupEditSuggestions');
+    Route::get('/editGroupSuggestions/{id}/edit', 'ProductGroupEditSuggestionController@edit')->name('productGroupEditSuggestionReview');
+    Route::post('/editGroupSuggestions/{id}', 'ProductGroupEditSuggestionController@update')->name('proceedProductGroupEditSuggestion');
+
+    // =============NOTIFICATIONS============
+    Route::get('/notifications', 'NotificationController@index')->name('notifications');
+    Route::get('/notifications/unseen', 'NotificationController@index')->name('unseenNotifications')->defaults('type', 'seen');
+    Route::get('/notifications/seen', 'NotificationController@index')->name('seenNotifications')->defaults('type', 'unSeen');
+    Route::post('/notifications/{notification}/edit', 'NotificationController@edit')->name('changeNotificationStatus');
+
+  });
+
+  // =====================================
   // =====ADMIN BUSSINES =========
+  //======================================
   Route::group(['prefix'=>'business', 'middleware'=>'roles', 'roles'=>['Admin']],function () {
   Route::get('', 'AdminBusinessController@index')->name('adminBussines');
 
@@ -74,6 +143,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth', 'roles'], 'roles'=>['Ad
   // ========modovi=========================
   Route::get('/addMod', 'ModController@create')->name('addModForm');
   Route::post('/addMod', 'ModController@store')->name('addMod');
+  Route::post('/editRole/{id}', 'RoleController@edit')->name('editUsersRole');
 
   // ======prikaz preporucenih proizvoda===============
   Route::get('/showRecommended', 'AdminBusinessController@indexRecommended')->name('showRecommended');
@@ -92,74 +162,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth', 'roles'], 'roles'=>['Ad
   Route::post('/ads/second/{secondAd}', 'SecondAdController@update')->name('updateSecondAd');
   Route::post('/ads/setActiveSecond', 'SecondAdController@setActive')->name('setSecondAd');
   Route::delete('/ads/second/{secondAd}', 'SecondAdController@destroy')->name('deleteSecondAd');
+
 });
-
-  // =========MODS BUSSINESS==========
-  Route::get('/profile', 'ModController@edit')->name('profile');
-  Route::post('/profile/{id}', 'ModController@update')->name('editProfile');
-
-
-  // =======PRODUCTS===============
-  Route::post('/products', 'ProductController@store')->name('storeProduct');
-  Route::get('/products/{id}/edit', 'ProductController@edit')->name('editProduct');
-  Route::patch('/products/{product}', 'ProductController@update')->name('updateProduct');
-  Route::delete('/products/{product}', 'ProductController@destroy')->name('deleteProduct');
-  Route::get('/products/trash/{letter?}', 'ProductController@indexTrash')->name('trashedProducts');
-  Route::post('/products/trash/{id}', 'ProductController@restore')->name('restoreProduct');
-  Route::get('/products/{letter?}', 'ProductController@index')->name('products');
-
-  // =====PRODUCT GROUPS=========
-  Route::post('/product_groups', 'ProductGroupController@store')->name('storeProductGroup');
-  Route::get('/product_groups/{id}/edit', 'ProductGroupController@edit')->name('editProductGroup');
-  Route::patch('/product_groups/{product}', 'ProductGroupController@update')->name('updateProductGroup');
-  Route::delete('/product_groups/{product}', 'ProductGroupController@destroy')->name('deleteProductGroup');
-  Route::get('/product_groups/trash/{letter?}', 'ProductGroupController@indexTrash')->name('trashedProductGroups');
-  Route::post('/product_groups/trash/{id}', 'ProductGroupController@restore')->name('restoreProductGroup');
-  Route::get('/product_groups/{letter?}', 'ProductGroupController@index')->name('productGroups');
-
-
-  // =====MANUFACTURERS===============
-  Route::get('/manufacturer/create', 'ManufacturerController@create')->name('createManufacturer');
-  Route::get('/manufacturer/{manufacturer}/{letter?}', 'ManufacturerController@view')->name('manufacturerProducts');
-  Route::post('/manufacturers', 'ManufacturerController@store')->name('storeManufacturer');
-  Route::get('/manufacturers/{id}/edit', 'ManufacturerController@edit')->name('editManufacturer');
-  Route::patch('/manufacturers/{manufacturer}', 'ManufacturerController@update')->name('updateManufacturer');
-  Route::delete('/manufacturers/{manufacturer}', 'ManufacturerController@destroy')->name('deleteManufacturer');
-  Route::get('/manufacturers/trash/{letter?}', 'ManufacturerController@indexTrash')->name('trashedManufacturers');
-  Route::post('/manufacturers/trash/{id}', 'ManufacturerController@restore')->name('restoreManufacturer');
-  Route::get('/manufacturers/{letter?}', 'ManufacturerController@index')->name('manufacturers');
-
-
-  // =============IMAGES========================
-  Route::post('/image', 'ImageController@store')->name('storeImages');
-  Route::get('/images/{imageable_type}/{id}', 'ImageController@edit')->name('editImages');
-  Route::delete('/images/{id}', 'ImageController@destroy')->name('deleteImage');
-  // Route::patch('/products/{product}', 'ProductController@update')->name('updateProduct');
-  // Route::delete('/products/{product}', 'ProductController@destroy')->name('deleteProduct');
-
-  // ========SUGGESTIONS================
-  Route::get('/suggestions', 'SuggestionController@index')->name('suggestions');
-  Route::get('/suggestions/trash', 'SuggestionController@indexTrash')->name('trashedSuggestions');
-  Route::get('/suggestions/{id}/edit', 'SuggestionController@edit')->name('suggestionReview');
-  Route::delete('/suggestions/{id}', 'SuggestionController@destroy')->name('deleteSuggestion');
-
-  Route::get('/imagesSuggestions', 'ImageSuggestionController@index')->name('imagesSuggestions');
-  Route::get('/imagesSuggestions/{id}/edit', 'ImageSuggestionController@edit')->name('imagesSuggestionReview');
-  Route::post('/imagesSuggestions/{id}', 'ImageSuggestionController@update')->name('proceedImagesSuggestion');
-
-  Route::get('/editSuggestions', 'ProductEditSuggestionController@index')->name('productEditSuggestions');
-  Route::get('/editSuggestions/{id}/edit', 'ProductEditSuggestionController@edit')->name('productEditSuggestionReview');
-  Route::post('/editSuggestions/{id}', 'ProductEditSuggestionController@update')->name('proceedProductEditSuggestion');
-
-  Route::get('/editGroupSuggestions', 'ProductGroupEditSuggestionController@index')->name('productGroupEditSuggestions');
-  Route::get('/editGroupSuggestions/{id}/edit', 'ProductGroupEditSuggestionController@edit')->name('productGroupEditSuggestionReview');
-  Route::post('/editGroupSuggestions/{id}', 'ProductGroupEditSuggestionController@update')->name('proceedProductGroupEditSuggestion');
-
-  // =============NOTIFICATIONS============
-  Route::get('/notifications', 'NotificationController@index')->name('notifications');
-  Route::get('/notifications/unseen', 'NotificationController@index')->name('unseenNotifications')->defaults('type', 'seen');
-  Route::get('/notifications/seen', 'NotificationController@index')->name('seenNotifications')->defaults('type', 'unSeen');
-  Route::post('/notifications/{notification}/edit', 'NotificationController@edit')->name('changeNotificationStatus');
 
 
 

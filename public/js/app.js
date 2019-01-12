@@ -49160,11 +49160,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return this.$store.getters.getSearchTerm;
     },
     placeholder1: function placeholder1() {
-      var placeholders = ['čokolada', "napolitnake", "mammas pizza", "bananica", "mars", "praline", "emulgator E220", "alfabet supa"];
+      var placeholders = ['čokolada', "napolitnake", "mammas pizza", "bananica", "Twix", "praline", "Integrino", "pasta"];
       return placeholders[Math.floor(Math.random() * placeholders.length)];
     },
     placeholder2: function placeholder2() {
-      var placeholders = ["žele zeka", "piškote", "emuglator", "ratluk", "soja sos", "pita", "vino", "pivo"];
+      var placeholders = ["Žele Zeka", "Piškote", "emuglator", "ratluk", "soja sos", "pita", "vino", "pivo", "emulgator E220"];
       return placeholders[Math.floor(Math.random() * placeholders.length)];
     }
   },
@@ -50603,66 +50603,77 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-8 col-lg-7 productQuickInfo" }, [
-          _c(
-            "h4",
-            { staticClass: "mb-1 spaced px-1 text-center c2 c1-md w-100 mb-2" },
-            [_vm._v(_vm._s(_vm.product.name))]
-          ),
-          _vm._v(" "),
-          typeof _vm.product.manufacturer !== "undefined"
-            ? _c(
-                "a",
-                {
-                  staticClass: "fo1 mb-1 text-center  w-100 c2Link  mb-2",
-                  attrs: { href: "/proizvodjac/" + _vm.product.manufacturer.id }
-                },
-                [
-                  _c("span", [_vm._v("proizvodi ")]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "underlined c2 c1-md" }, [
-                    _vm._v(" " + _vm._s(_vm.product.manufacturer.name) + " ")
-                  ])
-                ]
-              )
-            : _c(
-                "a",
-                {
-                  staticClass: "fo1 mb-1 text-center  w-100 c2Link mb-2",
-                  attrs: { href: "/grupa_proizvoda/" + _vm.product.id }
-                },
-                [
-                  _c("span", { staticClass: "underlined c2" }, [
-                    _vm._v(" grupa proizvoda ")
-                  ])
-                ]
-              ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "fo1 mb-1 text-center  w-100 c2Link mb-2",
-              attrs: { href: "/kategorija/" + _vm.product.category.name }
-            },
-            [
-              _c("span", [_vm._v("u kategoriji ")]),
-              _c("br", { staticClass: "d-md-none" }),
-              _vm._v(" "),
-              _c("span", { staticClass: "underlined c2 c1-md" }, [
-                _vm._v(_vm._s(_vm.product.category.name))
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-primary rounded mt-2 px-2 vegelijeButton",
-              attrs: { href: _vm.toProduct }
-            },
-            [_vm._v("Vege li je?")]
-          )
-        ])
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-8 col-lg-7 productQuickInfo d-flex flex-column justify-content-center"
+          },
+          [
+            _c(
+              "h4",
+              {
+                staticClass: "mb-1 spaced px-1 text-center c2 c1-md w-100 mb-2"
+              },
+              [_vm._v(_vm._s(_vm.product.name))]
+            ),
+            _vm._v(" "),
+            typeof _vm.product.manufacturer !== "undefined"
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "fo1 mb-1 text-center  w-100 c2Link  mb-2",
+                    attrs: {
+                      href: "/proizvodjac/" + _vm.product.manufacturer.id
+                    }
+                  },
+                  [
+                    _c("span", [_vm._v("proizvodi ")]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "underlined c2 c1-md" }, [
+                      _vm._v(" " + _vm._s(_vm.product.manufacturer.name) + " ")
+                    ])
+                  ]
+                )
+              : _c(
+                  "a",
+                  {
+                    staticClass: "fo1 mb-1 text-center  w-100 c2Link mb-2",
+                    attrs: { href: "/grupa_proizvoda/" + _vm.product.id }
+                  },
+                  [
+                    _c("span", { staticClass: "underlined c2" }, [
+                      _vm._v(" grupa proizvoda ")
+                    ])
+                  ]
+                ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "fo1 mb-1 text-center  w-100 c2Link mb-2",
+                attrs: { href: "/kategorija/" + _vm.product.category.name }
+              },
+              [
+                _c("span", [_vm._v("u kategoriji ")]),
+                _c("br", { staticClass: "d-md-none" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "underlined c2 c1-md" }, [
+                  _vm._v(_vm._s(_vm.product.category.name))
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-primary rounded mt-2 px-2 vegelijeButton",
+                attrs: { href: _vm.toProduct }
+              },
+              [_vm._v("Vege li je?")]
+            )
+          ]
+        )
       ])
     ]
   )
@@ -52036,7 +52047,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "rankingInfo col-3 col-lg-2 d-flex flex-column align-items-center justify-content-center"
+              "rankingInfo col-12 col-lg-2 d-flex flex-column align-items-center justify-content-center"
           },
           [
             _c("h2", { staticClass: "text-center c2 ranking rounded-circle" }, [
@@ -52055,7 +52066,7 @@ var render = function() {
             _vm.index <= 2
               ? _c("h4", { staticClass: "text-center" }, [
                   _c("i", {
-                    staticClass: "fas fa-crown",
+                    staticClass: "fas fa-crown d-inline d-sm-inline-block",
                     class: {
                       gold: _vm.index == 0,
                       silver: _vm.index == 1,
@@ -52067,17 +52078,21 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "productImage col-4 col-lg-4" }, [
-          _c("img", {
-            attrs: {
-              src: "/images/" + _vm.product.image,
-              alt: "product image",
-              id: _vm.index
-            }
-          })
-        ]),
+        _c(
+          "div",
+          { staticClass: "productImage col-5 col-lg-4 topProductImage" },
+          [
+            _c("img", {
+              attrs: {
+                src: "/images/" + _vm.product.image,
+                alt: "product image",
+                id: _vm.index
+              }
+            })
+          ]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "col-5 col-lg-6 productQuickInfo" }, [
+        _c("div", { staticClass: "col-7 col-lg-6 productQuickInfo" }, [
           _c(
             "h6",
             {
@@ -52143,7 +52158,7 @@ var render = function() {
           _c(
             "a",
             {
-              staticClass: "btn btn-primary rounded mt-2 px-2 vegelijeButton",
+              staticClass: "btn btn-primary rounded mt-2  vegelijeButton",
               attrs: { href: _vm.toProduct }
             },
             [_vm._v("Vege li je?")]

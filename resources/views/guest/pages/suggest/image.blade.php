@@ -29,6 +29,8 @@ Najsveobuhvatnije pretraga veganskih i vegetarijanskih proizvoda na Balkanu. Pom
   <div class="row">
     <div class="col-12">
     <h4 class="c2 text-center">Predložite novu sliku za proizvod {{$product->name}} proizvođača {{$product->manufacturer->name}}</h4>
+    <h6 class="fo1 c2">Molimo Vas da nam šaljete isključivo slike koje ste sami uslikali <br> <small>slanjem slike nam ustupate pravo korišćenja iste</small></h6>
+
 
     <h5 class='c2 text-center'>
       @if(!$product->images->count())
@@ -39,7 +41,7 @@ Najsveobuhvatnije pretraga veganskih i vegetarijanskih proizvoda na Balkanu. Pom
       Možete predložiti @if($product->images->count())još@endif do {{4-$product->images->count()}}
       {{4-$product->images->count() == 1? "sliku" : "slike"}}.</h5>
       <h6 class="c2 text-center">Maksimalna veličina svake pojedinačne slike iznosi {{config('app.maxfilesize')}}MB.</h6>
-      
+
       </div>
 
 

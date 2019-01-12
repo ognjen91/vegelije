@@ -14331,6 +14331,11 @@ a.text-dark:focus {
 .currentRoute {
   color: #ffd400;
   font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.currentRoute:hover {
+  color: #ffd400;
 }
 
 .mainMenu {
@@ -14363,13 +14368,19 @@ a.text-dark:focus {
 
 .menuItem {
   width: 100%;
-  margin: 2% 0;
+  margin: 3% 0;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-size: 1.3em;
 }
 
 @media screen and (min-width: 768px) {
+  .menuItem {
+    margin: 1.5% 0;
+  }
+}
+
+@media screen and (min-width: 992px) {
   .menuItem {
     margin: 1% 0;
   }
@@ -14989,6 +15000,7 @@ input#manufacturerBar::-webkit-input-placeholder {
 }
 
 .product {
+  padding-right: 2%;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15425,6 +15437,23 @@ input#manufacturerBar::-webkit-input-placeholder {
   text-decoration: underline;
 }
 
+.topProductImage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.topProductImage img {
+  width: 100%;
+  min-width: 100%;
+}
+
 .selectCateogry {
   color: #fff;
   text-decoration: none;
@@ -15596,6 +15625,8 @@ input#manufacturersSearch::-moz-placeholder {
 }
 
 .manufImageInResult {
+  max-height: 80px;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15605,6 +15636,24 @@ input#manufacturersSearch::-moz-placeholder {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media screen and (min-width: 576px) {
+  .manufImageInResult {
+    max-height: 90px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .manufImageInResult {
+    max-height: 110px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .manufImageInResult {
+    max-height: 130px;
+  }
 }
 
 .manufImageInResult img {
@@ -15809,7 +15858,7 @@ input#manufacturersSearch::-moz-placeholder {
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 30vh;
+  max-height: 30vh;
   background-color: rgba(203, 180, 184, 0);
   z-index: 100;
   display: -webkit-box;
@@ -15826,8 +15875,13 @@ input#manufacturersSearch::-moz-placeholder {
 
 @media screen and (min-width: 768px) {
   .top.periodicaly {
-    height: 25vh;
+    max-height: 25vh;
   }
+}
+
+.closeMainTop {
+  z-index: 101;
+  color: #28A745 !important;
 }
 
 .counter {
@@ -15838,8 +15892,9 @@ input#manufacturersSearch::-moz-placeholder {
 
 .frame {
   position: relative;
-  width: 90%;
-  margin-left: 5%;
+  width: 95%;
+  margin-bottom: 2%;
+  margin-left: 2.5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15858,7 +15913,7 @@ input#manufacturersSearch::-moz-placeholder {
 
 @media screen and (min-width: 768px) {
   .frame {
-    margin-bottom: 2%;
+    margin-bottom: 3%;
     width: 80%;
     margin-left: 10%;
     display: -webkit-box;

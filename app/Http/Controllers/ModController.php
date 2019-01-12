@@ -37,7 +37,7 @@ class ModController extends Controller
       if((int)$id !== \Auth::user()->id) return redirect()->back()->withError('Ne možete mijenjati tuđe podatke.');
       $user = \Auth::user();
       $user->email = request('email');
-      if(request('newPassword')) $user->password = $request->newPassword;
+      if(request('newPassword')) $user->password = bcrypt($request->newPassword);
       $user->save();
       return redirect()->back()->withSuccess('Podaci uspjеšno promjenjeni');
     }

@@ -13,7 +13,7 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
       $cat1 = Category::create([
-        'name' => 'Slatke'
+        'name' => 'Slatko'
       ]);
 
       $cat2 = Category::create([
@@ -21,15 +21,15 @@ class CategoriesTableSeeder extends Seeder
       ]);
 
       $cat3 = Category::create([
-        'name' => 'Konzervansi'
-      ]);
-
-      $cat4 = Category::create([
         'name' => 'Pića'
       ]);
 
-      $cat5 = Category::create([
+      $cat4 = Category::create([
         'name' => 'Kozmetika'
+      ]);
+
+      $cat5 = Category::create([
+        'name' => 'Hemija'
       ]);
 
       $cat6 = Category::create([

@@ -16,8 +16,7 @@ class GuestProvider extends ServiceProvider
     public function boot()
     {
       view()->composer('welcome', function($view){
-          $view->with('lastTags', \App\Tag::orderBy('created_at', 'desc')->get()->take(10))
-               ->with('randomTags', \App\Tag::get()->random(25));
+          $view->with('randomTags', \App\Tag::getLatest());
 
 
       });

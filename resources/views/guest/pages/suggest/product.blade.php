@@ -102,7 +102,7 @@ Najsveobuhvatnije pretraga veganskih i vegetarijanskih proizvoda na Balkanu. Pom
 
           <div class="form-group my-4 c2">
             <h4 class="fo1 c2"><strong>Slike proizvoda</strong></h4>
-            <h6 class="fo1 c2">Molimo Vas da nam šaljete isključivo slike koje ste sami uslikali</h6>
+            <h6 class="fo1 c2">Molimo Vas da nam šaljete isključivo slike koje ste sami uslikali <br> <small>slanjem slike nam ustupate pravo korišćenja iste</small></h6>
             <h6 class="c2 ">Maksimalna veličina svake pojedinačne slike iznosi {{config('app.maxfilesize')}}MB.</h6>
 
             <multiple-input-files :max-no-of-fields="2" :name="'images'" :must-upload-multiple='true'>

@@ -29,10 +29,11 @@ pomoću nekih od {{$noOfTags}} oznaka.
         <span class="c1"><strong>Vegelije</strong></span> su sajt nastale trudom jednog programera i grupe dobrih
         ljudi koji učestvuju u njihovom održavanju. <br>
         Ukoliko želite da pomognete projekat, to možete učiniti <a href="{{route('suggestProduct')}}" class="c4Link">
-        <span class="underlined">učeštvujući u kreiranju sadržaja sajta</span></a>, reklamiranjem na sajtu,
-         uplatom na <a href="#" class="c4Link"> <span class="underlined">paypal račun</span></a>, ili prateći nas na društvenim mrežama.<br>
+        <span class="underlined">učeštvujući u kreiranju sadržaja sajta</span></a>, reklamiranjem na sajtu, ili prateći nas na društvenim mrežama.<br>
+        Ako želite da podstatknete razvoj ovog i budućih sličnih projekata, možete to učiniti uplatom na
+        <span class='underlined c4'  data-toggle="tooltip" data-placement="top" title='vegelije@gmail.com'>paypal račun</span>. <br>
         Takođe, veoma nam znači Vaše mišljenje!
-        Svoja zapažanja i predloge možete poslati na <span class='c4'>vegelije@gmail.com</span>
+        Svoja zapažanja i predloge možete poslati na <span class='c4'>vegelije@outlook.com</span>
       </h3>
    </section>
 

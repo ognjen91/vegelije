@@ -69,7 +69,7 @@ Dobrodošli na Vegelije!
     </div>
 @endif
 @endauth
-{{-- ''auth: gumb za izmjenu proizvoda --}}
+{{-- //auth: gumb za izmjenu proizvoda --}}
 
 
 
