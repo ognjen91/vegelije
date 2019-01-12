@@ -25,11 +25,10 @@ class WelcomeController extends Controller
 
          $randomProducts =  $products->count() > config('app.initial_no_of_random_products')? Product::get()->random(config('app.initial_no_of_random_products')) : Product::get()->random($products->count());
 
-          $recommendedProductsCounter = Product::where('isRecommended', '1')->get()->count();
-          if($recommendedProductsCounter){
+            $recommendedProductsCounter = Product::where('isRecommended', '1')->get()->count();
             $theProducts  = Product::where('isRecommended', '1')->inRandomOrder();
             $recommendedProducts = $recommendedProductsCounter >= config('app.initial_no_of_recom_products')? $theProducts->take(config('app.initial_no_of_recom_products'))->get() : $theProducts->take($recommendedProductsCounter)->get();
-          }
+
 
 
           //ove podatke primam iz sesije koju sam setovao (ako je prethodno vrsena pretraga)  u ProductController@view
