@@ -53,8 +53,8 @@
 
 
   <!-- AKO NEMA REZULTATA.... -->
-  <div class="row mb-4 pl-lg-5"  id="searchResults" v-else>
-  <div class="col-12"  id="searchResults" >
+  <div class="row mb-4 pl-lg-5 noResults"  id="searchResults" v-else>
+  <div class="col-12 noResults">
 
       <h2 class="colorDanger w-100 pt-3 mb-5 my-5 text-center">Nema pronađenih rezultata za traženi pojam</h2>
       <h2 class='col-12 text-center c2 goBack' @click="closeResults"><i class="fas fa-arrow-circle-left"></i> Nazad</h2>

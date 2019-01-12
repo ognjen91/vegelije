@@ -10,6 +10,10 @@
   // align-items: flex-end;
   justify-content: flex-end;
   flex-direction: column;
+
+  @media screen and (min-width: $md){
+    height: 25vh;
+  }
 }
 
 .closeMainTop{
@@ -30,10 +34,12 @@
   margin-left: 5%;
   @include flexCenterImg();
   // align-self: flex-end;
-  border: $redb;
+  // border: $redb;
   @media screen and (min-width: $md){
-    width: 70%;
-    margin-left: 15%;
+    margin-bottom: 2%;
+    width: 80%;
+    margin-left: 10%;
+    @include flexCenterImg(80%);
   }
 }
 

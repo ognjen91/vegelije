@@ -48,20 +48,21 @@ background-color: $c205 !important;
 
     &>div.zoomedImage{
 
-       width: 100vw;
+       max-width: 100vw;
+
        display: flex;
        justify-content: center;
     &>div{
 
       @include flexCenterImg(80%);
       @media screen and (min-width: $md){
-        width: 80%;
-        @include flexCenterImg(78%);
+        max-width: 80%;
+        // @include flexCenterImg(78%);
     }
 
     @media screen and (min-width: $lg){
-      width: 60%;
-      @include flexCenterImg(60%);
+
+      // @include flexCenterImg(50%);
        }
     }
 
@@ -73,11 +74,6 @@ background-color: $c205 !important;
   }
 }
 
-// .productImgOnPage.4imgs{
-//   @media screen and (min-width: $md){
-//     @include flexCenterImg(70%);
-//   }
-// }
 
 
 

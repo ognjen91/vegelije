@@ -41,6 +41,7 @@ Vegelije Top Lista: najčešće pregledani proizvodi i grupe proizvoda. Vi birat
 
 #app{
   background-color: rgba(#ffffff, 0) !important;
+  /* background-image:  linear-gradient(to right,  #abc835, #dceba0); */
   background-image: linear-gradient(to right, #abc835, #fff);
 }
 

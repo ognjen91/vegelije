@@ -50358,9 +50358,12 @@ var render = function() {
       )
     : _c(
         "div",
-        { staticClass: "row mb-4 pl-lg-5", attrs: { id: "searchResults" } },
+        {
+          staticClass: "row mb-4 pl-lg-5 noResults",
+          attrs: { id: "searchResults" }
+        },
         [
-          _c("div", { staticClass: "col-12", attrs: { id: "searchResults" } }, [
+          _c("div", { staticClass: "col-12 noResults" }, [
             _c(
               "h2",
               { staticClass: "colorDanger w-100 pt-3 mb-5 my-5 text-center" },

@@ -51,7 +51,7 @@ Route::post('/predlozite/slike/{product}', 'ImageSuggestionController@store')->n
 
 
 
-Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
+Route::group(['prefix'=>'admin','middleware' => ['auth', 'roles'], 'roles'=>['Admin', 'Moderator']], function () {
     //dashboard
   Route::get('/', ['middleware'=>'roles', 'roles'=>['Admin', 'Moderator'], 'uses'=>'HomeController@index'])->name('home');
   Route::get('/letter/{letter?}', 'HomeController@index');

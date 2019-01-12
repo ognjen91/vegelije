@@ -57,9 +57,16 @@ class MainAdController extends Controller
 
   public function setActive(Request $request){
     $ads = MainAd::all();
-    foreach ($ads as $ad) {
-      $ad->active =  in_array($ad->id, $request->active)? 1 : 0;
-      $ad->save();
+    if(!empty($request->active)){
+      foreach ($ads as $ad) {
+        $ad->active =  in_array($ad->id, $request->active)? 1 : 0;
+        $ad->save();
+      }
+    } else {
+      foreach ($ads as $ad) {
+        $ad->active =  0;
+        $ad->save();
+      }
     }
 
     return redirect()->back()->withSuccess('Aktivna glavna reklama je uspješno postavljena');

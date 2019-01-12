@@ -150,9 +150,12 @@ Proizvod {{$product->name}} iz kategorije {{$product->category->name}} se nalazi
 @endif
 @endif
 
+@if($secondAd)
 <div class="col-12 col-md-8 my-3">
   @include('includes.ads.SecondAdDown')
 </div>
+@endif
+
 
 @auth
 

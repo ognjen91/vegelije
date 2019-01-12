@@ -60,20 +60,23 @@ Dobrodošli na Vegelije!
 {{-- //TAGOVI --}}
 
 
+{{-- auth: gumb za izmjenu proizvoda --}}
 @auth
 @if(\Auth::user()->hasAnyRole('Admin', 'Moderator'))
-
     <div class="col-12 col-md-8 my-4 d-flex flex-column justify-content-center">
       <h3 class="text-center mb-3 c2">Admin opcije</h3>
       <a href="{{route('editProductGroup', $product->id)}}" type="button" class="btn btn-primary btn-lg btn-block">Menjajte ovu grupu proizvoda</a>
     </div>
-
 @endif
 @endauth
+{{-- ''auth: gumb za izmjenu proizvoda --}}
+
+
 
 <section class="col-12 col-md-8 my-2 my-md-3">
    <p class="text-center w-100 c2">Uočili ste grešku u podacima o ovoj grupi proizvoda? Imate dodante informacije o istoj? <a href="{{route('suggestEditGroup', $product->id)}}" class="c1Link"><strong class='underlined'>Dojavite nam!</strong></a></p>
 </section>
+
 
 @if($secondAd)
 <slide-in-view :class-of-div='"col-10 offset-1 col-md-6 offset-md-1 my-2 my-md-3"' :duration='900'>
@@ -84,6 +87,7 @@ Dobrodošli na Vegelije!
   </div>
 </slide-in-view>
 @endif
+
 
 <section class="col-12 col-md-8">
 

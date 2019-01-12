@@ -3,6 +3,7 @@
 
 .adminHeader{
   background-color: rgba(255, 255, 255, 0);
+
 }
 
 .logo{
@@ -15,12 +16,23 @@
 
     @media screen and (min-width: $lg) {
       @include flexCenterImg(92%);
+
     }
 
   }
 
+.checkProductGroupHeader, .TopListsHeader{
 
-.TopListsHeader, .checkProductGroupHeader{
+  background-image:  linear-gradient(to right,  #abc835, #dceba0);
+  // background-image:  linear-gradient(to right,  #4ea462, #fff);
+}
+
+.homepageHeader{
+  padding-bottom: 0 !important;
+  margin-bottom: -0.5%;
+}
+
+.TopListsHeader{
   background-color: #abc835;
 }
 
