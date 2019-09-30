@@ -1,0 +1,7 @@
+1. defining relationships
+2. since there is no 'password' column in users table, I assume that authentification isn't the most important part
+   of this testing app; therefore, I made the most simple login/logout system which doesn't require password to log in.
+   I always use Laravel auth system anyway.
+
+3. To check if the criteria for starting conversation exists, in Like Model I've created a method that checks if
+   users liked each others(method 'isMatching')

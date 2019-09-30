@@ -30,7 +30,7 @@ Najsveobuhvatnije pretraga veganskih i vegetarijanskih proizvoda na Balkanu. Pom
       <section class="col-12 mb-3">
         {{-- {{dd($googleUser->name)}} --}}
         <h1 class='fo1 spaced2 mb-2 mb-lg-4 c1'>Predložite proizvod</h1>
-        <h4 class='fo1 c2'><strong>{{$googleUser->user['gender'] == 'female'? 'Poštovana' : 'Poštovani'}} {{$googleUser->user['name']}},
+        <h4 class='fo1 c2'><strong>{{isset($googleUser->user['gender'])?($googleUser->user['gender'] == 'female'? 'Poštovana' : 'Poštovani') : "Poštovani"}} {{$googleUser->user['name']}},
         Hvala vam što doprinosite <span class="c1">Vegelijama</span> i vege zajednici!</strong><br>
         Po unosu, proizvod će proći reviziju administratora sajta i biti objavljen u najkraćem roku.</h4>
 

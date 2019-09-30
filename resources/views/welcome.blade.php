@@ -16,7 +16,7 @@ i doprinesite sajtu i zajednici učestvujući u kreiranju novih saržaja i popra
 <no-product-danger></no-product-danger>
 
 
-
+<nestooo :products="{{$randomProducts}}"></nestooo>
 <div class="col-12 w-100 mb-2 mb-md-3 mb-lg-4 mt-3 mt-sm-2 mt-lg-0 titleWrap d-flex flex-column">
   <h1 class="text-center w-100 c2 spaced appTitle">Vege Li Je <span class='c1' id="qmark"><strong>?</strong></span></h1>
   <h5 class="text-center w-100 c2 spaced2"><small>vege pretraga i provera proizvoda</small></h5>

@@ -21,7 +21,7 @@
   <h3 class="c1">
     Predlog za promenu podataka proizvoda {{$product->name}} proizvođača {{$product->manufacturer->name}}
   </h3>
-  <p class='c2'><strong>{{$googleUser->user['gender'] == 'female'? 'Poštovana' : 'Poštovani'}} {{$googleUser->user['name']}},
+  <p class='c2'><strong>{{isset($googleUser->user['gender'])?($googleUser->user['gender'] == 'female'? 'Poštovana' : 'Poštovani') : "Poštovani"}} {{$googleUser->user['name']}},
   <span class="c1">Vegelije</span> Vam zahvaljuju na pažnji i uloženom vremenu da, zajedno sa nama, poboljšate sadržaj aplikacije.
   Po unosu, naši moderatori će pregledati predlog i ukoliko je predlog konstruktivan, rado ćemo ga prihvatiti.</strong></p>
 </div>

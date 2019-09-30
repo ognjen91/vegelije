@@ -38,6 +38,8 @@ Vue.component('iconWithHiddenForm', require('./components/admin/reusable/IconWit
 Vue.component('zoomableImage', require('./components/admin/reusable/ImageZoomable.vue'));
 Vue.component('multipleInputFiles', require('./components/admin/reusable/multipleInputFiles.vue'));
 
+Vue.component('nestooo', require('./helpers/fooo.vue'));
+
 
 
 Vue.component('suggestionFormWithCustomAction', require('./components/admin/suggestionReview/FormWithCustomAction.vue'));
@@ -63,8 +65,8 @@ $("#closeMenu").click(()=>{$("#menu").removeClass("mobileMenuShow").addClass("mo
 if($('#notice').length) setTimeout(()=>$('#notice').slideUp(), 5500);
 
 
-if (process.env.MIX_APP_ENV === 'production') {
-    Vue.config.devtools = false;
-    Vue.config.debug = false;
-    Vue.config.silent = true;
-}
+// if (process.env.MIX_APP_ENV === 'production') {
+//     Vue.config.devtools = false;
+//     Vue.config.debug = false;
+//     Vue.config.silent = true;
+// }
